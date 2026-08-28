@@ -23,7 +23,7 @@
 <meta name="twitter:image" content="https://www.pomolo-mykonos.com/assets/store_external_overview.jpg">
 
 <!-- Security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://graph.instagram.com; connect-src 'self' https://graph.instagram.com; frame-src https://www.instagram.com; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'self'; form-action 'self'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,7 +71,6 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#collections">Collections</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#owner">The Owner</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -169,28 +168,7 @@
       <h2>An Island Standard of Interior Craftsmanship</h2>
       <p>Pomolo was born on the island of Mykonos, where Cycladic light meets uncompromising design. We source and curate the finest bathroom fittings, furniture, textiles and outdoor living pieces for discerning homes, villas and hospitality projects across the Aegean and beyond.</p>
       <p>Every piece in our showroom is chosen for one reason: it must embody our promise — <strong>Interior, Luxury, Quality.</strong></p>
-      <div class="about-stats">
-        <div><span>15+</span><small>Years of Curation</small></div>
-        <div><span>500+</span><small>Signature Projects</small></div>
-        <div><span>8</span><small>Product Worlds</small></div>
-      </div>
       <a href="#contact" class="btn btn-primary">Meet Our Designers</a>
-    </div>
-  </div>
-</section>
-
-<!-- Owner -->
-<section id="owner" class="section owner">
-  <div class="container owner-grid">
-    <div class="owner-copy">
-      <p class="eyebrow">A Personal Vision</p>
-      <h2>Meet the Owner</h2>
-      <p>Pomolo is the vision of its founder, whose passion for Cycladic architecture and refined living shapes every piece selected for the showroom. Having spent years sourcing from the finest ateliers across Europe, they built Pomolo to bring uncompromising quality to Mykonos homes and villas.</p>
-      <p>Every collection is personally curated, every client relationship personally overseen — because true luxury is in the details.</p>
-      <a href="#contact" class="btn btn-outline">Get in Touch</a>
-    </div>
-    <div class="owner-media">
-      <img src="assets/owner.jpg" alt="Pomolo Mykonos founder outside the showroom" class="owner-photo" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
@@ -202,9 +180,9 @@
     <h2>Life at Pomolo, Mykonos</h2>
     <p class="gallery-sub">A live feed from our Instagram — the latest interiors, arrivals &amp; installations.</p>
 
-    <!-- Instagram's own public profile embed — no API key or login required -->
-    <div id="instagram-embed" class="instagram-embed">
-      <iframe src="https://www.instagram.com/pomolo_mykonos_official/embed/" loading="lazy" allowtransparency="true"></iframe>
+    <div class="instagram-fallback">
+      <p>See our latest interiors, arrivals and installations on Instagram.</p>
+      <a href="https://www.instagram.com/pomolo_mykonos_official/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Open Instagram</a>
     </div>
 
     <div class="gallery-grid" id="instagram-feed">
@@ -282,14 +260,6 @@
         <li><a href="#contact">Contact</a></li>
         <li><a href="https://www.instagram.com/pomolo_mykonos_official/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
       </ul>
-    </div>
-    <div class="footer-newsletter">
-      <h4>Stay Inspired</h4>
-      <p>Subscribe for new arrivals &amp; design stories.</p>
-      <form id="newsletter-form">
-        <input type="email" placeholder="Your email" required>
-        <button type="submit" aria-label="Subscribe">→</button>
-      </form>
     </div>
   </div>
   <div class="container footer-bottom">

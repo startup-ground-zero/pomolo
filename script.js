@@ -45,63 +45,26 @@ cards.forEach(card => observer.observe(card));
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Contact form (front-end only demo submission)
 const contactForm = document.getElementById('contact-form');
 const formNote = document.getElementById('form-note');
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    // Honeypot: if the hidden field got filled, silently drop the submission (bot).
     if (contactForm.company.value.trim() !== '') {
       contactForm.reset();
       return;
     }
-    formNote.textContent = 'Thank you — our design team will be in touch shortly.';
-    contactForm.reset();
+
+    const formData = new FormData(contactForm);
+    const subject = encodeURIComponent(formData.get('subject'));
+    const body = encodeURIComponent([
+      `Name: ${formData.get('name')}`,
+      `Email: ${formData.get('email')}`,
+      '',
+      formData.get('message')
+    ].join('\n'));
+    window.location.href = `mailto:info@pomolo-mykonos.com?subject=${subject}&body=${body}`;
+    formNote.textContent = 'Your email app is opening with the enquiry details.';
   });
 }
 
-// Newsletter form
-const newsletterForm = document.getElementById('newsletter-form');
-if (newsletterForm) {
-  newsletterForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    newsletterForm.reset();
-  });
-}
-
-// Live Instagram feed (Instagram Graph API — requires a long-lived access token)
-// Get one via developers.facebook.com > Instagram Basic Display / Graph API for a
-// connected Business/Creator account, then paste it below. Until then the static
-// placeholder tiles already in the page remain visible.
-const IG_ACCESS_TOKEN = '';
-const IG_POST_LIMIT = 6;
-
-async function loadInstagramFeed() {
-  if (!IG_ACCESS_TOKEN) return;
-  const feed = document.getElementById('instagram-feed');
-  if (!feed) return;
-  try {
-    const res = await fetch(
-      `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink&limit=${IG_POST_LIMIT}&access_token=${IG_ACCESS_TOKEN}`
-    );
-    if (!res.ok) throw new Error('Instagram feed request failed');
-    const data = await res.json();
-    if (!data.data || !data.data.length) return;
-
-    feed.innerHTML = data.data.map((post) => {
-      const img = post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url;
-      return `<a class="gallery-tile" href="${post.permalink}" target="_blank" rel="noopener noreferrer" style="background-image:url('${img}')" aria-label="View post on Instagram"></a>`;
-    }).join('');
-  } catch (err) {
-    console.warn('Could not load live Instagram feed, showing placeholders instead.', err);
-  }
-}
-loadInstagramFeed();
-
-// If a SnapWidget/Behold embed has been pasted into #instagram-embed, hide the placeholder grid.
-const instagramEmbed = document.getElementById('instagram-embed');
-const instagramPlaceholder = document.getElementById('instagram-feed');
-if (instagramEmbed && instagramPlaceholder && instagramEmbed.childElementCount > 0) {
-  instagramPlaceholder.classList.add('has-embed');
-}
