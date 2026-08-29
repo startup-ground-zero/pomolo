@@ -14,22 +14,26 @@
 <meta property="og:site_name" content="Pomolo Mykonos">
 <meta property="og:title" content="Pomolo Mykonos | Interior. Luxury. Quality.">
 <meta property="og:description" content="Curated bathrooms, indoor & outdoor furniture, taps, tiles, fabrics, blinds, curtains and parasols for the finest homes in Mykonos.">
-<meta property="og:image" content="https://www.pomolo-mykonos.com/store_external_overview.jpg">
+<meta property="og:image" content="https://www.pomolo-mykonos.com/logo.png">
+<meta property="og:image:alt" content="Pomolo Mykonos logo">
+<meta property="og:image:type" content="image/png">
 <meta property="og:url" content="https://www.pomolo-mykonos.com/">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pomolo Mykonos | Interior. Luxury. Quality.">
 <meta name="twitter:description" content="Curated bathrooms, indoor & outdoor furniture, taps, tiles, fabrics, blinds, curtains and parasols for the finest homes in Mykonos.">
-<meta name="twitter:image" content="https://www.pomolo-mykonos.com/store_external_overview.jpg">
+<meta name="twitter:image" content="https://www.pomolo-mykonos.com/logo.png">
+<meta name="twitter:image:alt" content="Pomolo Mykonos logo">
 
 <!-- Security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.instagram.com; base-uri 'self'; form-action 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src 'self' https://www.instagram.com; base-uri 'self'; form-action 'self'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=20260829">
+<style>@media (min-width:1025px) { .contact-grid .contact-form { margin-top: 115px; } }</style>
 <link rel="icon" href="logo.png" type="image/png">
 <link rel="apple-touch-icon" href="logo.png">
 <link rel="manifest" href="site.webmanifest">
@@ -69,10 +73,27 @@
     <nav id="nav">
       <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#collections">Collections</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#owner">The Owner</a></li>
-        <li><a href="#gallery">Gallery</a></li>
+        <li class="nav-more nav-collections">
+          <details>
+            <summary>Collections</summary>
+            <ul class="nav-submenu">
+              <li><a href="catalogue.html?category=bathroom">Bathroom</a></li><li><a href="catalogue.html?category=furniture">Furniture</a></li><li><a href="catalogue.html?category=taps">Taps</a></li><li><a href="catalogue.html?category=tiles">Tiles</a></li><li><a href="catalogue.html?category=fabric">Fabric</a></li><li><a href="catalogue.html?category=blinds">Blinds</a></li><li><a href="catalogue.html?category=curtains">Curtains</a></li><li><a href="catalogue.html?category=parasols">Parasols</a></li><li><a href="catalogue.html">View All Catalogues</a></li>
+            </ul>
+          </details>
+        </li>
+        <li class="nav-more">
+          <details>
+            <summary>Explore</summary>
+            <ul class="nav-submenu">
+              <li><a href="brands.html">Brands &amp; Partners</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="professionals.html">For Professionals</a></li>
+            </ul>
+          </details>
+        </li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -114,46 +135,69 @@
     <p class="eyebrow">Our Collections</p>
     <h2 class="no-wrap">Curated for Every Room, Indoors &amp; Out</h2>
     <div class="collection-grid">
-      <article class="collection-card" style="--i:1">
+      <a href="catalogue.html?category=bathroom" class="collection-card" style="--i:1">
         <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 26h36v4a10 10 0 0 1-10 10H16A10 10 0 0 1 6 30v-4Z"/><path d="M10 26V14a5 5 0 0 1 5-5c2 0 3.5 1 4.5 2.5"/><path d="M14 40v3M34 40v3"/></svg></div>
         <h3>Bathroom</h3>
         <p>Sanitary ware, vanities &amp; fittings finished to the highest standard.</p>
-      </article>
-      <article class="collection-card" style="--i:2">
+      </a>
+      <a href="catalogue.html?category=furniture" class="collection-card" style="--i:2">
         <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 26v-6a4 4 0 0 1 4-4h24a4 4 0 0 1 4 4v6"/><path d="M6 26h36a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2Z"/><path d="M8 36v4M40 36v4"/></svg></div>
         <h3>Indoor &amp; Outdoor Furniture</h3>
         <p>Statement pieces built for Mykonos living, sun or shade.</p>
-      </article>
-      <article class="collection-card" style="--i:3">
+      </a>
+      <a href="catalogue.html?category=taps" class="collection-card" style="--i:3">
         <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M16 8h8a4 4 0 0 1 4 4v6h6a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2"/><path d="M12 22v6a10 10 0 0 0 20 0v-2"/><path d="M22 40v2M12 40v-4M20 8v6"/></svg></div>
         <h3>Taps</h3>
         <p>Precision-engineered fixtures in brushed brass, chrome &amp; matte black.</p>
-      </article>
-      <article class="collection-card" style="--i:4">
+      </a>
+      <a href="catalogue.html?category=tiles" class="collection-card" style="--i:4">
         <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="6" y="6" width="15" height="15" rx="1"/><rect x="27" y="6" width="15" height="15" rx="1"/><rect x="6" y="27" width="15" height="15" rx="1"/><rect x="27" y="27" width="15" height="15" rx="1"/></svg></div>
         <h3>Tiles</h3>
         <p>Natural stone &amp; porcelain surfaces sourced from the finest ateliers.</p>
-      </article>
-      <article class="collection-card" style="--i:5">
+      </a>
+      <a href="catalogue.html?category=fabric" class="collection-card" style="--i:5">
         <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 14c4-3 8-3 12 0s8 3 12 0 8-3 12 0"/><path d="M6 24c4-3 8-3 12 0s8 3 12 0 8-3 12 0"/><path d="M6 34c4-3 8-3 12 0s8 3 12 0 8-3 12 0"/></svg></div>
         <h3>Fabric</h3>
         <p>Luxurious weaves for upholstery, cushions &amp; soft furnishings.</p>
-      </article>
-      <article class="collection-card" style="--i:6">
+      </a>
+      <a href="catalogue.html?category=blinds" class="collection-card" style="--i:6">
         <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="7" y="6" width="34" height="36" rx="1"/><path d="M7 15h34M7 24h34M7 33h34"/><path d="M24 6v36"/></svg></div>
         <h3>Blinds</h3>
         <p>Tailored light control with an architectural finish.</p>
-      </article>
-      <article class="collection-card" style="--i:7">
+      </a>
+      <a href="catalogue.html?category=curtains" class="collection-card" style="--i:7">
         <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 6v36M38 6v36"/><path d="M10 10c6 4 6 8 0 12s-6 8 0 12 6 8 0 12"/><path d="M38 10c-6 4-6 8 0 12s6 8 0 12-6 8 0 12"/></svg></div>
         <h3>Curtains</h3>
         <p>Flowing drapery custom-made for every window &amp; villa.</p>
-      </article>
-      <article class="collection-card" style="--i:8">
+      </a>
+      <a href="catalogue.html?category=parasols" class="collection-card" style="--i:8">
         <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 22a18 18 0 0 1 36 0Z"/><path d="M24 22V4M24 22v20a4 4 0 0 1-6 3.5"/></svg></div>
         <h3>Parasols</h3>
         <p>Elegant shade solutions for terraces, pools &amp; the Aegean sun.</p>
-      </article>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="section services">
+  <div class="container">
+    <div class="services-heading">
+      <div>
+        <p class="eyebrow">Designed Around You</p>
+        <h2>From First Idea to Final Detail</h2>
+      </div>
+      <p>Pomolo brings together product knowledge, considered selection and personal guidance for homes, villas and hospitality projects.</p>
+    </div>
+    <div class="service-grid">
+      <article class="service-item"><h3>Interior Consultation</h3><p>Practical, design-led guidance for spaces that feel considered from every angle.</p></article>
+      <a href="brands.html" class="service-item"><h3>Brands &amp; Partners</h3><p>Explore the specialist makers and collections we bring together for exceptional interiors.</p></a>
+      <a href="projects.html" class="service-item"><h3>Villa &amp; Hospitality Projects</h3><p>See how Pomolo supports private residences, rental villas and destination properties.</p></a>
+      <a href="professionals.html" class="service-item"><h3>Trade Support</h3><p>A dedicated point of contact for architects, designers and project teams.</p></a>
+    </div>
+    <div class="services-actions">
+      <a href="professionals.html" class="btn btn-outline">For Professionals</a>
+      <a href="consultation.html" class="btn btn-primary">Book a Consultation</a>
     </div>
   </div>
 </section>
@@ -169,39 +213,23 @@
       <h2>An Island Standard of Interior Craftsmanship</h2>
       <p>Pomolo was born on the island of Mykonos, where Cycladic light meets uncompromising design. We source and curate the finest bathroom fittings, furniture, textiles and outdoor living pieces for discerning homes, villas and hospitality projects across the Aegean and beyond.</p>
       <p>Every piece in our showroom is chosen for one reason: it must embody our promise — <strong>Interior, Luxury, Quality.</strong></p>
-      <a href="#contact" class="btn btn-primary">Meet Our Designers</a>
     </div>
   </div>
-</section>
 
 <!-- Owner -->
-<section id="owner" class="section owner">
+<div class="owner">
   <div class="container owner-grid">
     <div class="owner-copy">
       <p class="eyebrow">A Personal Vision</p>
       <h2>Meet the Owner</h2>
       <p>Pomolo is shaped by a passion for Cycladic architecture and refined living. That point of view guides every piece selected for the showroom and every project created for Mykonos homes and villas.</p>
       <p>Every collection is personally curated and every client relationship personally overseen, because true luxury is in the details.</p>
-      <a href="#contact" class="btn btn-outline">Get in Touch</a>
     </div>
     <div class="owner-media">
       <img src="owner.jpg" alt="Pomolo Mykonos founder outside the showroom" class="owner-photo" loading="lazy" decoding="async">
     </div>
   </div>
-</section>
-
-<!-- Gallery / Instagram -->
-<section id="gallery" class="section gallery">
-  <div class="container">
-    <p class="eyebrow">Follow the Story</p>
-    <h2>Life at Pomolo, Mykonos</h2>
-    <p class="gallery-sub">A live feed from our Instagram — the latest interiors, arrivals &amp; installations.</p>
-
-    <div id="instagram-embed" class="instagram-embed">
-      <iframe src="https://www.instagram.com/pomolo_mykonos_official/embed/" title="Pomolo Mykonos Instagram feed" loading="lazy" allowtransparency="true"></iframe>
-    </div>
-    <a href="https://www.instagram.com/pomolo_mykonos_official/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">@pomolo_mykonos_official</a>
-  </div>
+</div>
 </section>
 
 <!-- Quote / tagline banner -->
@@ -220,16 +248,16 @@
       <h2>Plan Your Next Interior Project</h2>
       <p>Our design consultants are available for private appointments, villa projects and trade enquiries.</p>
       <ul class="contact-list">
-        <li><strong>Showroom</strong><br>Ornos, Míkonos 84600</li>
-        <li><strong>Email</strong><br>info@pomolo-mykonos.com</li>
-        <li><strong>Phone</strong><br>+30 22890 000 000</li>
+        <li><strong>Showroom</strong><br><a href="https://www.google.com/maps/place/Pomolo+Mykonos/@37.4262301,25.3210062,1004m/data=!3m2!1e3!4b1!4m6!3m5!1s0x14a2be5c880e42df:0x6e0a7d070bba3527!8m2!3d37.4262301!4d25.3235811!16s%2Fg%2F11g6rmvs_f?entry=ttu&amp;g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="address-link">Ornos, Míkonos 84600</a></li>
+        <li><strong>Email</strong><br><a href="mailto:info@pomolo-mykonos.com">info@pomolo-mykonos.com</a></li>
+        <li><strong>Phone</strong><br><a href="tel:+302289077800">+30 22890 77800</a></li>
         <li><strong>Instagram</strong><br><a href="https://www.instagram.com/pomolo_mykonos_official/" target="_blank" rel="noopener noreferrer">@pomolo_mykonos_official</a></li>
       </ul>
     </div>
     <form class="contact-form" id="contact-form">
       <div class="form-row">
         <input type="text" name="name" placeholder="Full Name" autocomplete="name" maxlength="100" required>
-        <input type="email" name="email" placeholder="Email Address" autocomplete="email" maxlength="150" required>
+        <input type="email" name="email" placeholder="Email Address" autocomplete="email" maxlength="150" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Enter an email address with a domain, such as name@example.com." required>
       </div>
       <input type="text" name="subject" placeholder="Subject" autocomplete="off" maxlength="150" required>
       <textarea name="message" rows="5" placeholder="Tell us about your project..." maxlength="2000" required></textarea>
@@ -262,11 +290,19 @@
     <div class="footer-links">
       <h4>Explore</h4>
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="https://www.instagram.com/pomolo_mykonos_official/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="catalogue.html">Catalogues</a></li>
+        <li><a href="brands.html">Brands &amp; Partners</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="professionals.html">For Professionals</a></li>
+        <li><a href="consultation.html">Book a Consultation</a></li>
+        <li><a href="quote.html">Ask for a Quote</a></li>
       </ul>
+    </div>
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p><strong>Showroom</strong><a href="https://www.google.com/maps/place/Pomolo+Mykonos/@37.4262301,25.3210062,1004m/data=!3m2!1e3!4b1!4m6!3m5!1s0x14a2be5c880e42df:0x6e0a7d070bba3527!8m2!3d37.4262301!4d25.3235811!16s%2Fg%2F11g6rmvs_f?entry=ttu&amp;g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Ornos, Míkonos 84600</a></p>
+      <p><strong>Email</strong><a href="mailto:info@pomolo-mykonos.com">info@pomolo-mykonos.com</a></p>
+      <p><strong>Phone</strong><a href="tel:+302289077800">+30 22890 77800</a></p>
     </div>
   </div>
   <div class="container footer-bottom">

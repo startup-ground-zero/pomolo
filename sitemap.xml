@@ -5,4 +5,11 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url><loc>https://www.pomolo-mykonos.com/catalogue.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.pomolo-mykonos.com/brands.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.pomolo-mykonos.com/projects.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.pomolo-mykonos.com/professionals.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.pomolo-mykonos.com/gallery.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.pomolo-mykonos.com/consultation.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.pomolo-mykonos.com/quote.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
 </urlset>
