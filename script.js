@@ -126,6 +126,58 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 const contactForm = document.getElementById('contact-form');
 const formNote = document.getElementById('form-note');
+
+// Get category parameter from URL
+const categoryParam = new URLSearchParams(window.location.search).get('category');
+const categoryNames = {
+  'bathroom': 'Bathroom',
+  'furniture': 'Furniture',
+  'taps': 'Taps',
+  'tiles': 'Tiles',
+  'fabric': 'Fabric',
+  'blinds': 'Blinds',
+  'curtains': 'Curtains',
+  'parasols': 'Parasols'
+};
+
+// Update ALL "Ask for a Quote" links if category is in URL
+if (categoryParam) {
+  const categoryName = categoryNames[categoryParam] || categoryParam;
+  
+  // Update subject field on quote page
+  const subjectField = document.querySelector('input[name="subject"]');
+  if (subjectField) {
+    subjectField.value = `Catalogue quote request - ${categoryName}`;
+  }
+  
+  // Update ALL quote links on the current page
+  document.querySelectorAll('a[href*="quote.html"]').forEach(link => {
+    if (!link.href.includes('?category=')) {
+      link.href = `quote.html?category=${categoryParam}`;
+    }
+  });
+}
+
+// Catalogue page: update quote links with category parameter when catalogue card is clicked
+const catalogueCards = document.querySelectorAll('.catalogue-card');
+if (catalogueCards.length > 0) {
+  const quoteViewerLink = document.getElementById('quote-viewer-link');
+  
+  catalogueCards.forEach(card => {
+    const category = card.dataset.category;
+    card.addEventListener('click', () => {
+      if (quoteViewerLink) {
+        quoteViewerLink.href = `quote.html?category=${category}`;
+      }
+      // Also update the generic quote link if it exists
+      const quoteGenericLink = document.getElementById('quote-generic-link');
+      if (quoteGenericLink) {
+        quoteGenericLink.href = `quote.html?category=${category}`;
+      }
+    });
+  });
+}
+
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
