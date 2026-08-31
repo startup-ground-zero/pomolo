@@ -39,6 +39,10 @@ h1, h2, h3, h4, blockquote {
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
+.brand-inline { display: inline-block; width: 120px; height: auto; vertical-align: middle; }
+.eyebrow .brand-inline { width: 108px; vertical-align: -0.25em; }
+.btn .brand-inline { width: 78px; vertical-align: -0.2em; }
+.quote-banner .brand-inline { width: 110px; }
 
 .container {
   max-width: var(--container);
