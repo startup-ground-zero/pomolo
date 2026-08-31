@@ -39,10 +39,13 @@ h1, h2, h3, h4, blockquote {
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
-.brand-inline { display: inline-block; width: 120px; height: auto; vertical-align: middle; }
-.eyebrow .brand-inline { width: 108px; vertical-align: -0.25em; }
-.btn .brand-inline { width: 78px; vertical-align: -0.2em; }
-.quote-banner .brand-inline { width: 110px; }
+.brand-inline { display: inline-block; width: 4em; height: auto; vertical-align: -0.22em; }
+.brand-inline-display { width: 7em; vertical-align: -0.3em; }
+.eyebrow .brand-inline { width: 7em; vertical-align: -0.35em; }
+.btn .brand-inline { width: 5.2em; vertical-align: -0.26em; }
+.quote-banner .brand-inline { width: 3em; vertical-align: -0.22em; }
+.quote-banner .brand-inline-display { width: 7em; vertical-align: -0.3em; }
+.footer-bottom .brand-inline { width: 3em; vertical-align: -0.22em; }
 
 .container {
   max-width: var(--container);
@@ -167,7 +170,7 @@ header.scrolled {
 }
 .hero-media {
   position: absolute; inset: 0;
-  background: url('store_external_overview.jpg') center/cover no-repeat;
+  background: url('picture_front_pomolo.jpg') center -9cm/cover no-repeat;
   animation: kenburns 22s ease-in-out infinite alternate;
 }
 @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.1); } }
@@ -409,6 +412,7 @@ header.scrolled {
 .gallery .btn-outline:hover { background: var(--c-cyan); border-color: var(--c-cyan); }
 .gallery-page-content { min-height: 100vh; padding-top: 180px; }
 .gallery-page-content h1 { font-size: clamp(3rem, 6vw, 5.5rem); color: var(--c-white); margin-bottom: 20px; }
+.gallery-page-content h1 .brand-inline { width: 2em; vertical-align: -0.28em; }
 .gallery-page .gallery-page-content { background: var(--c-off-white); color: var(--c-black); }
 .gallery-page #header { background: var(--c-black); box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
 .gallery-page .gallery-page-content .eyebrow { color: var(--c-cyan); }
@@ -427,6 +431,7 @@ header.scrolled {
 }
 .quote-banner blockquote { font-size: clamp(1.8rem, 4vw, 3rem); color: var(--c-white); }
 .quote-banner p { margin-top: 16px; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; opacity: 0.85; }
+.quote-banner .brand-inline { filter: brightness(0) invert(1); }
 
 /* ==========================================================================
    Contact
