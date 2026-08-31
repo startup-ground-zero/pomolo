@@ -26,13 +26,13 @@
 <meta name="twitter:image:alt" content="Pomolo Mykonos logo">
 
 <!-- Security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src 'self' https://www.instagram.com; base-uri 'self'; form-action 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src 'self' https://www.instagram.com; base-uri 'self'; form-action 'self' https://formsubmit.co; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=Righteous&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260831j">
+<link rel="stylesheet" href="styles.css?v=20260831k">
 <style>@media (min-width:1025px) { .contact-grid .contact-form { margin-top: 115px; } }</style>
 <link rel="icon" href="logo.png" type="image/png">
 <link rel="apple-touch-icon" href="logo.png">
@@ -254,7 +254,9 @@
         <li><strong>Instagram</strong><br><a href="https://www.instagram.com/pomolo_mykonos_official/" target="_blank" rel="noopener noreferrer">@pomolo_mykonos_official</a></li>
       </ul>
     </div>
-    <form class="contact-form" id="contact-form">
+    <form class="contact-form" action="https://formsubmit.co/info@pomolo-mykonos.com" method="POST">
+      <input type="hidden" name="_next" value="https://www.pomolo-mykonos.com/thank-you.html">
+      <input type="hidden" name="_subject" value="Pomolo website enquiry">
       <div class="form-row">
         <input type="text" name="name" placeholder="Full Name" autocomplete="name" maxlength="100" required>
         <input type="email" name="email" placeholder="Email Address" autocomplete="email" maxlength="150" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Enter an email address with a domain, such as name@example.com." required>
@@ -262,7 +264,8 @@
       <input type="text" name="subject" placeholder="Subject" autocomplete="off" maxlength="150" required>
       <textarea name="message" rows="5" placeholder="Tell us about your project..." maxlength="2000" required></textarea>
       <!-- Honeypot: hidden from real users, bots tend to fill every field -->
-      <input type="text" name="company" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="consent-field"><input type="checkbox" name="privacy-consent" required> I agree to the <a href="privacy.html">Privacy Policy</a>.</label>
       <button type="submit" class="btn btn-primary">Send Enquiry</button>
       <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
     </form>
@@ -306,12 +309,12 @@
     </div>
   </div>
   <div class="container footer-bottom">
-    <p>&copy; <span id="year"></span> Pomolo Mykonos. All rights reserved.</p>
+    <p>&copy; <span id="year"></span> Pomolo Mykonos. All rights reserved. <a href="privacy.html">Privacy</a> <a href="terms.html">Terms</a></p>
   </div>
 </footer>
 
 <button id="back-to-top" aria-label="Back to top">↑</button>
 
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 </body>
 </html>

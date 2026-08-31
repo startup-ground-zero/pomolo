@@ -373,6 +373,13 @@ header.scrolled {
 .projects-layout p, .consultation-layout > div > p { margin-bottom: 20px; color: var(--c-grey); font-weight: 300; }
 .consultation-section { background: var(--c-off-white); }
 .consultation-layout .contact-form { padding: 38px; background: var(--c-white); border: 1px solid #e1e6e9; }
+.legal-content { max-width: 820px; }
+.legal-content h2 { margin-top: 42px; margin-bottom: 12px; font-size: 1.8rem; }
+.legal-content p { color: var(--c-grey); font-weight: 300; }
+.legal-content a { color: var(--c-cyan); text-decoration: underline; text-underline-offset: 3px; }
+.legal-updated { color: var(--c-grey); font-size: 0.82rem; }
+.thank-you { min-height: 58vh; display: flex; align-items: center; background: var(--c-off-white); }
+.thank-you p:not(.eyebrow) { max-width: 520px; margin: 18px 0 30px; color: var(--c-grey); font-size: 1.05rem; font-weight: 300; }
 
 /* Distinct visual identities for specialist pages. */
 .catalogue-page .catalogue-intro { background: #203b49; }
@@ -444,6 +451,10 @@ header.scrolled {
 }
 .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--c-cyan); }
 .contact-form button { align-self: flex-start; border: none; }
+.consent-field { display: flex; align-items: flex-start; gap: 9px; color: var(--c-grey); font-size: 0.8rem; font-weight: 300; line-height: 1.45; }
+.contact-form .consent-field input { width: 16px; height: 16px; margin: 3px 0 0; padding: 0; accent-color: var(--c-cyan); }
+.consent-field a, .footer-bottom a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.consent-field a:hover, .footer-bottom a:hover { color: var(--c-cyan-light); }
 .form-note { color: var(--c-cyan); font-size: 0.85rem; }
 .hp-field {
   position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0;

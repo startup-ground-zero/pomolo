@@ -12,4 +12,6 @@
   <url><loc>https://www.pomolo-mykonos.com/gallery.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.pomolo-mykonos.com/consultation.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.pomolo-mykonos.com/quote.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.pomolo-mykonos.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.pomolo-mykonos.com/terms.html</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
 </urlset>
