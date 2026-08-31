@@ -192,10 +192,10 @@ header.scrolled {
   .hero-media { animation: none; }
 }
 .hero-content h1 {
-  font-size: clamp(2.2rem, 6vw, 4.2rem); letter-spacing: 0px; color: var(--c-white);
+  font-size: clamp(2.2rem, 6vw, 4.2rem); letter-spacing: 4px; color: var(--c-white);
   line-height: 1;
-  font-weight: 400;
-  font-family: 'Righteous', sans-serif;
+  font-weight: 600;
+  font-family: var(--font-serif);
   text-rendering: optimizeLegibility;
   opacity: 0; transform: translateY(24px);
   animation: hero-fade-up 0.9s ease-out 0.9s forwards;
