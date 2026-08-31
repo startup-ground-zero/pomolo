@@ -470,6 +470,9 @@ header.scrolled {
 .footer-brand img { width: 44px; }
 .footer-brand > span { font-family: 'Righteous', sans-serif; letter-spacing: 2px; font-size: 1.2rem; color: var(--c-white); font-weight: 400; }
 .footer-brand p { font-size: 0.85rem; color: var(--c-cyan-light); }
+.footer-social { display: flex; gap: 14px; margin-top: 4px; }
+.footer-social a { color: var(--c-cyan-light); display: inline-flex; transition: color 0.2s ease; }
+.footer-social a:hover { color: var(--c-white); }
 .footer-links h4 { color: var(--c-white); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 18px; }
 .footer-links li { margin-bottom: 12px; font-size: 0.9rem; font-weight: 300; }
 .footer-links a:hover { color: var(--c-cyan-light); }
