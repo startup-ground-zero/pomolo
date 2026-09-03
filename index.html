@@ -256,9 +256,10 @@
     </div>
     <form class="contact-form" action="https://formsubmit.co/info@pomolo-mykonos.com" method="POST">
       <input type="hidden" name="_subject" value="Pomolo website enquiry">
+      <input type="text" name="name" placeholder="Full Name" autocomplete="name" maxlength="100" required>
       <div class="form-row">
-        <input type="text" name="name" placeholder="Full Name" autocomplete="name" maxlength="100" required>
         <input type="email" name="email" placeholder="Email Address" autocomplete="email" maxlength="150" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Enter an email address with a domain, such as name@example.com." required>
+        <input type="tel" name="phone" placeholder="Phone Number" autocomplete="tel" maxlength="30">
       </div>
       <input type="text" name="subject" placeholder="Subject" autocomplete="off" maxlength="150" required>
       <textarea name="message" rows="5" placeholder="Tell us about your project..." maxlength="2000" required></textarea>

@@ -134,12 +134,13 @@ const categoryNames = {
   'fabric': 'Fabric',
   'blinds': 'Blinds',
   'curtains': 'Curtains',
-  'parasols': 'Parasols'
+  'parasols': 'Parasols',
+  'general': 'General'
 };
 
 // Update ALL "Ask for a Quote" links if category is in URL
 if (categoryParam) {
-  const categoryName = categoryNames[categoryParam] || categoryParam;
+  const categoryName = categoryNames[categoryParam] || (categoryParam.charAt(0).toUpperCase() + categoryParam.slice(1));
   
   // Update subject field on quote page
   const subjectField = document.querySelector('input[name="subject"]');
@@ -149,9 +150,7 @@ if (categoryParam) {
   
   // Update ALL quote links on the current page
   document.querySelectorAll('a[href*="quote.html"]').forEach(link => {
-    if (!link.href.includes('?category=')) {
-      link.href = `quote.html?category=${categoryParam}`;
-    }
+    link.href = `quote.html?category=${categoryParam}`;
   });
 }
 
