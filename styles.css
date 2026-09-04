@@ -281,7 +281,7 @@ header.scrolled {
 .services h2, .services h3 { color: var(--c-white); }
 .services-heading { display: flex; align-items: end; justify-content: space-between; gap: 60px; }
 .services-heading > p { max-width: 470px; color: rgba(255,255,255,0.65); font-weight: 300; }
-.service-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 58px; border-top: 1px solid rgba(255,255,255,0.16); }
+.service-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 58px; border-top: 1px solid rgba(255,255,255,0.16); }
 .service-item { min-height: 220px; padding: 34px 28px 28px; border-right: 1px solid rgba(255,255,255,0.16); }
 .service-item:first-child { padding-left: 0; }
 .service-item:last-child { border-right: none; }
@@ -309,8 +309,8 @@ header.scrolled {
 .owner { margin-top: 100px; padding: 100px 0; background: var(--c-off-white); }
 .owner-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 70px; align-items: center; }
 .owner-copy p { color: var(--c-grey); margin-bottom: 18px; font-weight: 300; max-width: 520px; }
-.owner-media { position: relative; height: 420px; border-radius: var(--radius); overflow: hidden; }
-.owner-photo { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.owner-media { position: relative; height: 490px; border-radius: var(--radius); overflow: hidden; }
+.owner-photo { width: 100%; height: 100%; object-fit: cover; object-position: center 70%; }
 
 /* ===========================================================================
   Catalogue
@@ -406,8 +406,8 @@ header.scrolled {
 .gallery .eyebrow { color: var(--c-cyan-light); }
 .gallery h2 { color: var(--c-white); margin-left: auto; margin-right: auto; }
 .gallery-sub { color: rgba(255,255,255,0.6); max-width: 520px; margin: 0 auto 40px; font-weight: 300; }
-.instagram-embed { max-width: 100%; margin: 0 auto 40px; }
-.instagram-embed iframe { width: 100%; height: 600px; border: none; border-radius: var(--radius); background: var(--c-black-soft); }
+.instagram-embed { max-width: 100%; margin: 0 auto 40px; min-height: 400px; }
+.instagram-embed iframe, .instagram-embed [class*="elfsight-app"] { width: 100%; border: none; border-radius: var(--radius); }
 .gallery .btn-outline { border-color: rgba(255,255,255,0.4); color: var(--c-white); }
 .gallery .btn-outline:hover { background: var(--c-cyan); border-color: var(--c-cyan); }
 .gallery-page-content { min-height: 100vh; padding-top: 180px; }
@@ -507,7 +507,7 @@ header.scrolled {
   .information-grid { grid-template-columns: 1fr; }
   .brands-page .information-card { grid-template-columns: 1fr; gap: 10px; }
   .brands-page .information-card p { padding-right: 0; }
-  .about-media, .owner-media { height: 340px; }
+  .about-media, .owner-media { height: 380px; }
   .owner-grid .owner-media { order: -1; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
 }
