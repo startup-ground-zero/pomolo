@@ -170,7 +170,7 @@ header.scrolled {
 }
 .hero-media {
   position: absolute; inset: 0;
-  background: url('picture_front_pomolo.jpg') center 35% / cover no-repeat;
+  background: url('store_external_overview_2.jpg') center 35% / cover no-repeat;
   animation: kenburns 22s ease-in-out infinite alternate;
 }
 @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.08); } }
@@ -386,12 +386,46 @@ header.scrolled {
 .brands-page .page-hero .eyebrow { color: #547668; }
 .brands-page .page-hero h1 { color: var(--c-black); }
 .brands-page .page-hero > .container > p:last-child { color: #405249; }
-.brands-page .information-grid { display: block; border-top: 1px solid #cad8cf; }
-.brands-page .information-card { display: grid; grid-template-columns: 130px minmax(190px, 1fr) 1.5fr auto; align-items: center; min-height: 0; padding: 30px 0; background: transparent; border: none; border-bottom: 1px solid #cad8cf; }
-.brands-page .information-card .eyebrow { margin: 0; color: #547668; }
-.brands-page .information-card h2 { margin: 0; }
-.brands-page .information-card p { padding-right: 24px; }
-.brands-page .text-link { margin: 0; padding: 0; white-space: nowrap; }
+
+/* Brand Partner Logo Grid & Architecture Partnership */
+.brand-partner-block { margin-bottom: 70px; }
+.section-intro.text-center { text-align: center; margin-bottom: 45px; }
+.section-intro.text-center p.eyebrow { color: #547668; }
+.section-intro.text-center h2 { max-width: 600px; margin: 0 auto 12px; }
+.section-intro.text-center p { max-width: 580px; margin: 0 auto; color: var(--c-grey); font-weight: 300; }
+
+.brand-logo-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+}
+.brand-logo-item {
+  height: 120px; display: flex; align-items: center; justify-content: center;
+  padding: 20px; background: var(--c-off-white); border: 1px dashed #cad8cf;
+  border-radius: var(--radius); color: #547668; font-size: 0.85rem;
+  letter-spacing: 1.5px; text-transform: uppercase; text-align: center;
+  transition: border-color var(--transition), background var(--transition);
+}
+.brand-logo-item:hover { border-color: #547668; background: var(--c-white); }
+
+.architect-partner-block { margin-bottom: 70px; }
+.architect-partner-card {
+  display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center;
+  padding: 48px; background: var(--c-off-white); border: 1px solid #cad8cf;
+  border-radius: var(--radius);
+}
+.architect-partner-copy .eyebrow { color: #547668; }
+.architect-partner-copy h2 { margin-bottom: 16px; }
+.architect-partner-copy p { margin-bottom: 28px; color: var(--c-grey); font-weight: 300; line-height: 1.6; }
+.architect-partner-copy .btn-outline { border-color: #547668; color: #547668; }
+.architect-partner-copy .btn-outline:hover { background: #547668; color: var(--c-white); }
+
+.architect-partner-logo { display: flex; justify-content: center; align-items: center; }
+.architect-logo-placeholder {
+  width: 100%; height: 180px; display: flex; align-items: center; justify-content: center;
+  background: var(--c-white); border: 1px dashed #cad8cf; border-radius: var(--radius);
+  color: #547668; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;
+  text-align: center; padding: 24px;
+}
+
 .brands-page .page-cta { background: #547668; }
 .professionals-page .page-hero { background: #314c5a; }
 .professionals-page .information-grid { counter-reset: service; gap: 0; background: #e8eef0; padding: 14px; }
@@ -509,6 +543,8 @@ header.scrolled {
   .brands-page .information-card p { padding-right: 0; }
   .about-media, .owner-media { height: 380px; }
   .owner-grid .owner-media { order: -1; }
+  .brand-logo-grid { grid-template-columns: repeat(2, 1fr); }
+  .architect-partner-card { grid-template-columns: 1fr; gap: 30px; padding: 32px; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
 }
 
