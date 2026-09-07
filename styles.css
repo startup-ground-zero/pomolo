@@ -177,7 +177,7 @@ header.scrolled {
 .hero-overlay {
   position: absolute; inset: 0;
   background:
-    linear-gradient(180deg, rgba(5,7,10,0.55) 0%, rgba(5,7,10,0.72) 55%, rgba(5,7,10,0.9) 100%),
+    linear-gradient(180deg, rgba(5,7,10,0.35) 0%, rgba(5,7,10,0.5) 55%, rgba(5,7,10,0.72) 100%),
     radial-gradient(circle at 50% 40%, rgba(113,150,168,0.18), transparent 60%);
 }
 .hero-content { position: relative; z-index: 2; color: var(--c-white); max-width: 780px; }
