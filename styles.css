@@ -170,10 +170,9 @@ header.scrolled {
 }
 .hero-media {
   position: absolute; inset: 0;
-  background: url('store_external_overview_2.jpg') center 35% / cover no-repeat;
-  animation: kenburns 22s ease-in-out infinite alternate;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
 }
-@keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.08); } }
 .hero-overlay {
   position: absolute; inset: 0;
   background:
@@ -198,7 +197,6 @@ header.scrolled {
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-emblem, .hero-logo { animation: none; opacity: 1; transform: none; }
-  .hero-media { animation: none; }
 }
 .hero-tagline {
   margin-top: 18px; font-size: 1.3rem; letter-spacing: 3px; text-transform: uppercase;
