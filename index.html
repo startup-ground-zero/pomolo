@@ -106,7 +106,7 @@
 <!-- Hero -->
 <section id="home" class="hero">
   <video class="hero-media" autoplay muted loop playsinline poster="store_external_overview_2.jpg" aria-hidden="true">
-    <source src="Pomolo-Mykonos-57s-Hero.mp4" type="video/mp4">
+    <source src="Pomolo-Mykonos-57s-Hero.mp4" type="video/mp4" media="(min-width: 768px)">
   </video>
   <div class="hero-overlay"></div>
   <div class="container hero-content" data-aos>
@@ -196,9 +196,9 @@
 <section id="about" class="section about">
   <div class="container about-grid">
     <div class="about-media">
-      <video src="new_video_store.MOV" alt="Pomolo Mykonos showroom overview" class="about-photo" loading="lazy" decoding="async" autoplay muted loop playsinline></video>
+      <video data-src="new_video_store.MOV" poster="store_external_overview.jpg" class="about-photo" preload="none" muted loop playsinline aria-label="Pomolo Mykonos showroom overview"></video>
       <div class="about-video-detail">
-        <video src="new_video_store_inside.MOV" class="about-photo" loading="lazy" decoding="async" autoplay muted loop playsinline aria-label="Inside the Pomolo Mykonos showroom"></video>
+        <video data-src="new_video_store_inside.MOV" poster="store_external_overview_2.jpg" class="about-photo" preload="none" muted loop playsinline aria-label="Inside the Pomolo Mykonos showroom"></video>
         <p class="about-video-caption"><strong>Inside the showroom</strong> Discover the considered collections and refined details waiting inside our Mykonos store.</p>
       </div>
     </div>

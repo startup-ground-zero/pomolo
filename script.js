@@ -22,6 +22,7 @@ backToTop.addEventListener('click', () => {
 
 // Mobile menu toggle
 const menuToggle = document.getElementById('menu-toggle');
+menuToggle.setAttribute('aria-controls', 'nav');
 menuToggle.setAttribute('aria-expanded', 'false');
 menuToggle.addEventListener('click', () => {
   const isOpen = header.classList.toggle('nav-open');
@@ -68,6 +69,15 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 cards.forEach(card => observer.observe(card));
 
+const showroomVideos = document.querySelectorAll('.about-media video[data-src]');
+if (window.matchMedia('(min-width: 768px)').matches) {
+  showroomVideos.forEach(video => {
+    video.src = video.dataset.src;
+    video.autoplay = true;
+    video.load();
+  });
+}
+
 // Catalogue category PDF viewer.
 const catalogueViewer = document.getElementById('catalogue-viewer');
 if (catalogueViewer) {
@@ -79,6 +89,7 @@ if (catalogueViewer) {
 
   const closeCatalogueViewer = () => {
     catalogueViewer.hidden = true;
+    document.documentElement.classList.remove('dialog-open');
     activeCatalogueCard?.focus();
   };
 
@@ -89,6 +100,7 @@ if (catalogueViewer) {
       cataloguePreviewTitle.textContent = `${card.dataset.catalogueTitle} Catalogue`;
       catalogueOpen.href = card.dataset.cataloguePdf;
       catalogueViewer.hidden = false;
+      document.documentElement.classList.add('dialog-open');
       catalogueClose.focus();
     };
 
