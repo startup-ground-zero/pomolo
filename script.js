@@ -22,11 +22,18 @@ backToTop.addEventListener('click', () => {
 
 // Mobile menu toggle
 const menuToggle = document.getElementById('menu-toggle');
+menuToggle.setAttribute('aria-expanded', 'false');
 menuToggle.addEventListener('click', () => {
-  header.classList.toggle('nav-open');
+  const isOpen = header.classList.toggle('nav-open');
+  document.documentElement.classList.toggle('nav-open', isOpen);
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
 });
 document.querySelectorAll('#nav a').forEach(link => {
-  link.addEventListener('click', () => header.classList.remove('nav-open'));
+  link.addEventListener('click', () => {
+    header.classList.remove('nav-open');
+    document.documentElement.classList.remove('nav-open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  });
 });
 
 document.querySelectorAll('.nav-more details').forEach(details => {
