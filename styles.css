@@ -175,6 +175,10 @@ header.scrolled {
   width: 100%; height: 100%;
   object-fit: cover; object-position: center;
 }
+@media (min-width: 1025px) {
+  .hero-media:not(.video-ready),
+  .about-media video:not(.video-ready) { visibility: hidden; }
+}
 .hero-overlay {
   position: absolute; inset: 0;
   background:

@@ -73,7 +73,14 @@ cards.forEach(card => observer.observe(card));
 
 const showroomVideos = document.querySelectorAll('.about-media video[data-src]');
 const heroVideo = document.querySelector('.hero-media');
+const revealVideoWhenReady = video => {
+  const reveal = () => video.classList.add('video-ready');
+  if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) reveal();
+  else video.addEventListener('canplay', reveal, { once: true });
+};
+
 if (heroVideo) {
+  revealVideoWhenReady(heroVideo);
   heroVideo.play().catch(() => {});
 }
 
@@ -81,6 +88,7 @@ const loadShowroomVideo = video => {
   if (video.src) return;
   video.src = video.dataset.src;
   video.autoplay = true;
+  revealVideoWhenReady(video);
   video.load();
 };
 
