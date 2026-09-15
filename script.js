@@ -1,8 +1,10 @@
 // Preloader
-window.addEventListener('load', () => {
+const hidePreloader = () => {
   const preloader = document.getElementById('preloader');
   if (preloader) preloader.classList.add('hidden');
-});
+};
+document.addEventListener('DOMContentLoaded', hidePreloader, { once: true });
+window.setTimeout(hidePreloader, 1200);
 
 // Header scroll state
 const header = document.getElementById('header');
@@ -70,11 +72,31 @@ const observer = new IntersectionObserver((entries) => {
 cards.forEach(card => observer.observe(card));
 
 const showroomVideos = document.querySelectorAll('.about-media video[data-src]');
-showroomVideos.forEach(video => {
+const heroVideo = document.querySelector('.hero-media');
+if (heroVideo) {
+  heroVideo.play().catch(() => {});
+}
+
+const loadShowroomVideo = video => {
+  if (video.src) return;
   video.src = video.dataset.src;
   video.autoplay = true;
   video.load();
-});
+};
+
+if ('IntersectionObserver' in window) {
+  const videoObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        loadShowroomVideo(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '300px 0px' });
+  showroomVideos.forEach(video => videoObserver.observe(video));
+} else {
+  showroomVideos.forEach(loadShowroomVideo);
+}
 
 // Catalogue category PDF viewer.
 const catalogueViewer = document.getElementById('catalogue-viewer');
