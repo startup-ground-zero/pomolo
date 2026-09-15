@@ -592,6 +592,7 @@ header.scrolled {
   header.nav-open #nav {
     display: flex; position: fixed; inset: 0; background: var(--c-black);
     flex-direction: column; align-items: center; justify-content: flex-start;
+    height: 100vh; height: 100dvh;
     overflow-y: auto; overscroll-behavior: contain;
     padding: calc(96px + env(safe-area-inset-top)) 24px calc(32px + env(safe-area-inset-bottom));
   }
