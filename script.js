@@ -70,13 +70,11 @@ const observer = new IntersectionObserver((entries) => {
 cards.forEach(card => observer.observe(card));
 
 const showroomVideos = document.querySelectorAll('.about-media video[data-src]');
-if (window.matchMedia('(min-width: 768px)').matches) {
-  showroomVideos.forEach(video => {
-    video.src = video.dataset.src;
-    video.autoplay = true;
-    video.load();
-  });
-}
+showroomVideos.forEach(video => {
+  video.src = video.dataset.src;
+  video.autoplay = true;
+  video.load();
+});
 
 // Catalogue category PDF viewer.
 const catalogueViewer = document.getElementById('catalogue-viewer');
