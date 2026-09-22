@@ -172,17 +172,20 @@ header.scrolled {
   flex-direction: column;
   gap: 16px;
 }
+.mega-col a.mega-cat-title + a.mega-cat-title {
+  margin-top: 14px;
+}
 #nav .nav-submenu.mega-menu a.mega-cat-title,
 .mega-cat-title {
   font-family: var(--font-serif) !important;
-  font-size: 2rem !important;
+  font-size: 20px !important;
   font-weight: 600 !important;
-  line-height: 1.2 !important;
+  line-height: 1.25 !important;
   color: var(--c-white) !important;
-  letter-spacing: 0.8px !important;
+  letter-spacing: 0.5px !important;
   text-transform: none !important;
-  padding-bottom: 10px !important;
-  border-bottom: 1.5px solid rgba(255,255,255,0.3) !important;
+  padding-bottom: 6px !important;
+  border-bottom: 1px solid rgba(255,255,255,0.22) !important;
   transition: color var(--transition), border-color var(--transition) !important;
   display: block !important;
 }
@@ -197,7 +200,7 @@ header.scrolled {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 .mega-sub-menu li {
   margin: 0 !important;
@@ -205,11 +208,11 @@ header.scrolled {
 #nav .nav-submenu.mega-menu .mega-sub-menu a,
 .mega-sub-menu a {
   font-family: var(--font-sans) !important;
-  font-size: 1.18rem !important;
+  font-size: 14px !important;
   font-weight: 400 !important;
-  line-height: 1.3 !important;
+  line-height: 1.35 !important;
   color: rgba(255,255,255,0.85) !important;
-  letter-spacing: 0.5px !important;
+  letter-spacing: 0.3px !important;
   text-transform: none !important;
   transition: color var(--transition) !important;
 }
@@ -218,8 +221,8 @@ header.scrolled {
   color: var(--c-cyan-light) !important;
 }
 .mega-footer {
-  margin-top: 26px;
-  padding-top: 16px;
+  margin-top: 18px;
+  padding-top: 12px;
   border-top: 1px solid rgba(255,255,255,0.18);
   display: flex;
   justify-content: flex-end;
@@ -228,6 +231,12 @@ header.scrolled {
 #nav .nav-submenu.mega-menu .mega-view-all,
 .mega-view-all {
   font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+  letter-spacing: 1.2px !important;
+  text-transform: uppercase !important;
+  color: var(--c-cyan-light) !important;
+  font-weight: 600 !important;
+}
   font-size: 1rem !important;
   letter-spacing: 1.5px !important;
   text-transform: uppercase !important;
