@@ -30,7 +30,37 @@
     <nav id="nav">
       <ul>
         <li><a href="index.html#home">Home</a></li>
-        <li class="nav-more nav-collections"><details><summary>Collections</summary><ul class="nav-submenu"><li><a href="catalogue.html?category=bathroom">Bathroom</a></li><li><a href="catalogue.html?category=furniture">Furniture</a></li><li><a href="catalogue.html?category=taps">Taps</a></li><li><a href="catalogue.html?category=tiles">Tiles</a></li><li><a href="catalogue.html?category=fabric">Fabric</a></li><li><a href="catalogue.html?category=blinds">Blinds</a></li><li><a href="catalogue.html?category=curtains">Curtains</a></li><li><a href="catalogue.html?category=parasols">Parasols</a></li><li><a href="catalogue.html" aria-current="page">View All Catalogues</a></li></ul></details></li>
+        <li class="nav-more nav-collections">
+          <details>
+            <summary>Collections</summary>
+            <div class="nav-submenu mega-menu">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <a href="catalogue.html?category=tiles" class="mega-cat-title">Tiles</a>
+                  <a href="catalogue.html?category=furniture" class="mega-cat-title">Interior &amp; Outdoor Furniture</a>
+                </div>
+                <div class="mega-col">
+                  <a href="catalogue.html?category=bathroom" class="mega-cat-title">Bathroom</a>
+                  <ul class="mega-sub-menu">
+                    <li><a href="catalogue.html?category=taps">Taps</a></li>
+                    <li><a href="catalogue.html?category=sanitary-ware">Sanitary Ware</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <a href="catalogue.html?category=curtains" class="mega-cat-title">Curtains</a>
+                  <ul class="mega-sub-menu">
+                    <li><a href="catalogue.html?category=blinds">Blinds</a></li>
+                    <li><a href="catalogue.html?category=fabric">Fabric</a></li>
+                    <li><a href="catalogue.html?category=parasols">Parasols</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mega-footer">
+                <a href="catalogue.html" class="mega-view-all">View All Catalogues</a>
+              </div>
+            </div>
+          </details>
+        </li>
         <li class="nav-more"><details><summary>Explore</summary><ul class="nav-submenu"><li><a href="brands.html">Brands &amp; Partners</a></li><li><a href="projects.html">Cyclades</a></li></ul></details></li>
         <li><a href="index.html#services">Services</a></li>
         <li><a href="index.html#about">About Us</a></li>
@@ -58,47 +88,93 @@
     <div class="container">
       <p class="eyebrow">Catalogue Library</p>
       <h2>Browse by Collection</h2>
-      <div class="collection-grid">
-        <article class="collection-card catalogue-card in-view" style="--i:1" data-category="bathroom" data-catalogue-title="Bathroom" data-catalogue-pdf="Demo PDF.pdf" tabindex="0" role="button" aria-haspopup="dialog">
-          <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 26h36v4a10 10 0 0 1-10 10H16A10 10 0 0 1 6 30v-4Z"/><path d="M10 26V14a5 5 0 0 1 5-5c2 0 3.5 1 4.5 2.5"/><path d="M14 40v3M34 40v3"/></svg></div>
-          <h3>Bathroom</h3>
-          <p>Sanitary ware, vanities &amp; fittings finished to the highest standard.</p>
-        </article>
-        <article class="collection-card catalogue-card in-view" style="--i:2" data-category="furniture" data-catalogue-title="Indoor &amp; Outdoor Furniture" data-catalogue-pdf="Demo PDF.pdf" tabindex="0" role="button" aria-haspopup="dialog">
-          <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 26v-6a4 4 0 0 1 4-4h24a4 4 0 0 1 4 4v6"/><path d="M6 26h36a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2Z"/><path d="M8 36v4M40 36v4"/></svg></div>
-          <h3>Indoor &amp; Outdoor Furniture</h3>
-          <p>Statement pieces built for Mykonos living, sun or shade.</p>
-        </article>
-        <article class="collection-card catalogue-card in-view" style="--i:3" data-category="taps" data-catalogue-title="Taps" data-catalogue-pdf="Demo PDF.pdf" tabindex="0" role="button" aria-haspopup="dialog">
-          <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M16 8h8a4 4 0 0 1 4 4v6h6a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2"/><path d="M12 22v6a10 10 0 0 0 20 0v-2"/><path d="M22 40v2M12 40v-4M20 8v6"/></svg></div>
-          <h3>Taps</h3>
-          <p>Precision-engineered fixtures in brushed brass, chrome &amp; matte black.</p>
-        </article>
-        <article class="collection-card catalogue-card in-view" style="--i:4" data-category="tiles" data-catalogue-title="Tiles" data-catalogue-pdf="Demo PDF.pdf" tabindex="0" role="button" aria-haspopup="dialog">
-          <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="6" y="6" width="15" height="15" rx="1"/><rect x="27" y="6" width="15" height="15" rx="1"/><rect x="6" y="27" width="15" height="15" rx="1"/><rect x="27" y="27" width="15" height="15" rx="1"/></svg></div>
-          <h3>Tiles</h3>
-          <p>Natural stone &amp; porcelain surfaces sourced from the finest ateliers.</p>
-        </article>
-        <article class="collection-card catalogue-card in-view" style="--i:5" data-category="fabric" data-catalogue-title="Fabric" data-catalogue-pdf="Demo PDF.pdf" tabindex="0" role="button" aria-haspopup="dialog">
-          <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 14c4-3 8-3 12 0s8 3 12 0 8-3 12 0 8-3 12 0"/><path d="M6 24c4-3 8-3 12 0s8 3 12 0 8-3 12 0 8-3 12 0"/><path d="M6 34c4-3 8-3 12 0s8 3 12 0 8-3 12 0 8-3 12 0"/></svg></div>
-          <h3>Fabric</h3>
-          <p>Luxurious weaves for upholstery, cushions &amp; soft furnishings.</p>
-        </article>
-        <article class="collection-card catalogue-card in-view" style="--i:6" data-category="blinds" data-catalogue-title="Blinds" data-catalogue-pdf="Demo PDF.pdf" tabindex="0" role="button" aria-haspopup="dialog">
-          <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="7" y="6" width="34" height="36" rx="1"/><path d="M7 15h34M7 24h34M7 33h34"/><path d="M24 6v36"/></svg></div>
-          <h3>Blinds</h3>
-          <p>Tailored light control with an architectural finish.</p>
-        </article>
-        <article class="collection-card catalogue-card in-view" style="--i:7" data-category="curtains" data-catalogue-title="Curtains" data-catalogue-pdf="Demo PDF.pdf" tabindex="0" role="button" aria-haspopup="dialog">
-          <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 6v36M38 6v36"/><path d="M10 10c6 4 6 8 0 12s-6 8 0 12 6 8 0 12"/><path d="M38 10c-6 4-6 8 0 12s6 8 0 12-6 8 0 12"/></svg></div>
-          <h3>Curtains</h3>
-          <p>Flowing drapery custom-made for every window &amp; villa.</p>
-        </article>
-        <article class="collection-card catalogue-card in-view" style="--i:8" data-category="parasols" data-catalogue-title="Parasols" data-catalogue-pdf="Demo PDF.pdf" tabindex="0" role="button" aria-haspopup="dialog">
-          <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 22a18 18 0 0 1 36 0Z"/><path d="M24 22V4M24 22v20a4 4 0 0 1-6 3.5"/></svg></div>
-          <h3>Parasols</h3>
-          <p>Elegant shade solutions for terraces, pools &amp; the Aegean sun.</p>
-        </article>
+
+      <div class="category-filter-tabs">
+        <button type="button" class="category-tab-btn active" data-filter="all">All</button>
+        <button type="button" class="category-tab-btn" data-filter="furniture">Interior &amp; Outdoor Furniture</button>
+        <button type="button" class="category-tab-btn" data-filter="tiles">Tiles</button>
+        <button type="button" class="category-tab-btn" data-filter="bathroom">Bathroom</button>
+        <button type="button" class="category-tab-btn" data-filter="curtains">Curtains</button>
+      </div>
+
+      <div class="collection-rows">
+        <!-- Row 1: Interior and Outdoor Furniture -->
+        <div class="collection-row" data-row-group="furniture">
+          <h3 class="collection-row-title">Interior &amp; Outdoor Furniture</h3>
+          <div class="collection-grid row-grid-1">
+            <article class="collection-card catalogue-card in-view" style="--i:1" data-category="furniture" data-category-group="furniture" data-catalogue-title="Interior &amp; Outdoor Furniture" data-catalogue-pdf="Demo PDF.pdf" tabindex="0" role="button" aria-haspopup="dialog">
+              <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 26v-6a4 4 0 0 1 4-4h24a4 4 0 0 1 4 4v6"/><path d="M6 26h36a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2Z"/><path d="M8 36v4M40 36v4"/></svg></div>
+              <h3>Interior &amp; Outdoor Furniture</h3>
+              <p>Statement pieces built for Mykonos living, sun or shade.</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- Row 2: Tiles -->
+        <div class="collection-row" data-row-group="tiles">
+          <h3 class="collection-row-title">Tiles</h3>
+          <div class="collection-grid row-grid-1">
+            <article class="collection-card catalogue-card in-view" style="--i:2" data-category="tiles" data-category-group="tiles" data-catalogue-title="Tiles" data-catalogue-pdf="Demo PDF.pdf" tabindex="0" role="button" aria-haspopup="dialog">
+              <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="6" y="6" width="15" height="15" rx="1"/><rect x="27" y="6" width="15" height="15" rx="1"/><rect x="6" y="27" width="15" height="15" rx="1"/><rect x="27" y="27" width="15" height="15" rx="1"/></svg></div>
+              <h3>Tiles</h3>
+              <p>Natural stone &amp; porcelain surfaces sourced from the finest ateliers.</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- Row 3: Bathroom (Bathroom, Taps, Sanitary Ware) -->
+        <div class="collection-row" data-row-group="bathroom">
+          <h3 class="collection-row-title">Bathroom</h3>
+          <div class="collection-grid row-grid-3">
+            <article class="collection-card catalogue-card in-view" style="--i:3" data-category="bathroom" data-category-group="bathroom" data-catalogue-title="Bathroom" data-catalogue-pdf="Demo PDF.pdf" tabindex="0" role="button" aria-haspopup="dialog">
+              <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 26h36v4a10 10 0 0 1-10 10H16A10 10 0 0 1 6 30v-4Z"/><path d="M10 26V14a5 5 0 0 1 5-5c2 0 3.5 1 4.5 2.5"/><path d="M14 40v3M34 40v3"/></svg></div>
+              <h3>Bathroom</h3>
+              <p>Sanitary ware, vanities &amp; fittings finished to the highest standard.</p>
+            </article>
+            <article class="collection-card catalogue-card in-view" style="--i:4" data-category="taps" data-category-group="bathroom" data-catalogue-title="Taps" data-catalogue-pdf="Demo PDF.pdf" tabindex="0" role="button" aria-haspopup="dialog">
+              <span class="card-badge">Bathroom</span>
+              <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M16 8h8a4 4 0 0 1 4 4v6h6a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2"/><path d="M12 22v6a10 10 0 0 0 20 0v-2"/><path d="M22 40v2M12 40v-4M20 8v6"/></svg></div>
+              <h3>Taps</h3>
+              <p>Precision-engineered fixtures in brushed brass, chrome &amp; matte black.</p>
+            </article>
+            <article class="collection-card catalogue-card in-view" style="--i:5" data-category="sanitary-ware" data-category-group="bathroom" data-catalogue-title="Sanitary Ware" data-catalogue-pdf="Demo PDF.pdf" tabindex="0" role="button" aria-haspopup="dialog">
+              <span class="card-badge">Bathroom</span>
+              <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 20h28v4a14 14 0 0 1-28 0v-4Z"/><path d="M24 8v6"/><path d="M20 8h8"/><path d="M18 38h12"/><path d="M24 34v4"/><path d="M14 20v-2a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v2"/></svg></div>
+              <h3>Sanitary Ware</h3>
+              <p>Architectural washbasins, freestanding pieces &amp; refined ceramic elements.</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- Row 4: Curtains (Curtains, Blinds, Fabric, Parasols) -->
+        <div class="collection-row" data-row-group="curtains">
+          <h3 class="collection-row-title">Curtains</h3>
+          <div class="collection-grid row-grid-4">
+            <article class="collection-card catalogue-card in-view" style="--i:6" data-category="curtains" data-category-group="curtains" data-catalogue-title="Curtains" data-catalogue-pdf="Demo PDF.pdf" tabindex="0" role="button" aria-haspopup="dialog">
+              <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 6v36M38 6v36"/><path d="M10 10c6 4 6 8 0 12s-6 8 0 12 6 8 0 12"/><path d="M38 10c-6 4-6 8 0 12s6 8 0 12-6 8 0 12"/></svg></div>
+              <h3>Curtains</h3>
+              <p>Flowing drapery custom-made for every window &amp; villa.</p>
+            </article>
+            <article class="collection-card catalogue-card in-view" style="--i:7" data-category="blinds" data-category-group="curtains" data-catalogue-title="Blinds" data-catalogue-pdf="Demo PDF.pdf" tabindex="0" role="button" aria-haspopup="dialog">
+              <span class="card-badge">Curtains</span>
+              <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="7" y="6" width="34" height="36" rx="1"/><path d="M7 15h34M7 24h34M7 33h34"/><path d="M24 6v36"/></svg></div>
+              <h3>Blinds</h3>
+              <p>Tailored light control with an architectural finish.</p>
+            </article>
+            <article class="collection-card catalogue-card in-view" style="--i:8" data-category="fabric" data-category-group="curtains" data-catalogue-title="Fabric" data-catalogue-pdf="Demo PDF.pdf" tabindex="0" role="button" aria-haspopup="dialog">
+              <span class="card-badge">Curtains</span>
+              <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 14c4-3 8-3 12 0s8 3 12 0 8-3 12 0"/><path d="M6 24c4-3 8-3 12 0s8 3 12 0 8-3 12 0"/><path d="M6 34c4-3 8-3 12 0s8 3 12 0 8-3 12 0"/></svg></div>
+              <h3>Fabric</h3>
+              <p>Luxurious weaves for upholstery, cushions &amp; soft furnishings.</p>
+            </article>
+            <article class="collection-card catalogue-card in-view" style="--i:9" data-category="parasols" data-category-group="curtains" data-catalogue-title="Parasols" data-catalogue-pdf="Demo PDF.pdf" tabindex="0" role="button" aria-haspopup="dialog">
+              <span class="card-badge">Curtains</span>
+              <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 22a18 18 0 0 1 36 0Z"/><path d="M24 22V4M24 22v20a4 4 0 0 1-6 3.5"/></svg></div>
+              <h3>Parasols</h3>
+              <p>Elegant shade solutions for terraces, pools &amp; the Aegean sun.</p>
+            </article>
+          </div>
+        </div>
       </div>
       <div class="catalogue-notice">
         <h2>New catalogues are coming soon.</h2>
