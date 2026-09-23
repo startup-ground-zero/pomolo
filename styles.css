@@ -149,8 +149,8 @@ header.scrolled {
 /* Mega Menu for Collections */
 .nav-collections { position: relative; }
 .nav-collections .nav-submenu.mega-menu {
-  position: absolute;
-  top: calc(100% + 16px);
+  position: fixed;
+  top: 78px;
   left: 50%;
   transform: translateX(-50%);
   width: min(1180px, calc(100vw - 32px));
