@@ -65,6 +65,20 @@ document.querySelectorAll('.nav-more details').forEach(details => {
   submenu?.addEventListener('mouseleave', closeMenu);
 });
 
+document.querySelectorAll('.nav-collections > details > summary').forEach(summary => {
+  const collectionsItem = summary.closest('.nav-collections');
+  if (!collectionsItem || collectionsItem.querySelector('.nav-collections-link')) return;
+
+  const catalogueLink = document.createElement('a');
+  catalogueLink.href = 'catalogue.html';
+  catalogueLink.className = 'nav-collections-link';
+  catalogueLink.textContent = summary.textContent.trim();
+  collectionsItem.insertBefore(catalogueLink, summary.parentElement);
+  summary.parentElement.open = true;
+  summary.replaceChildren();
+  summary.setAttribute('aria-label', 'Open Collections menu');
+});
+
 // Keep the collections menu consistent across the static pages.
 document.querySelectorAll('.mega-grid').forEach(menu => {
   menu.innerHTML = `

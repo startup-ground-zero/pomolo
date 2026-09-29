@@ -74,8 +74,9 @@
       <ul>
         <li><a href="#home">Home</a></li>
         <li class="nav-more nav-collections">
-          <details>
-            <summary>Collections</summary>
+          <a href="catalogue.html" class="nav-collections-link">Collections</a>
+          <details open>
+            <summary aria-label="Open Collections menu"></summary>
             <div class="nav-submenu mega-menu">
               <div class="mega-grid">
                 <div class="mega-col">
@@ -150,14 +151,14 @@
     <p class="hero-tagline">Interior - Exterior Quality Brands</p>
     <p class="hero-sub">Bespoke bathrooms, furniture &amp; interior essentials, curated on the island of Mykonos.</p>
     <div class="hero-actions">
-      <a href="#collections" class="btn btn-primary">Explore Collections</a>
+        <a href="catalogue.html" class="btn btn-primary">Explore Collections</a>
     </div>
   </div>
-  <a href="#collections" class="scroll-indicator" aria-label="Scroll down"><span></span></a>
+    <a href="#services" class="scroll-indicator" aria-label="Scroll down"><span></span></a>
 </section>
 
-<!-- Collections -->
-<section id="collections" class="section collections">
+<!-- Collections are available on the dedicated catalogue page. -->
+<template>
   <div class="container">
     <p class="eyebrow">Our Collections</p>
     <h2 class="no-wrap">Curated for Every Room, Indoors &amp; Out</h2>
@@ -250,7 +251,7 @@
       </div>
     </div>
   </div>
-</section>
+</template>
 
 <!-- Services -->
 <section id="services" class="section services">
@@ -400,6 +401,6 @@
 
 <button id="back-to-top" aria-label="Back to top">↑</button>
 
-<script src="script.js?v=20260922c" defer></script>
+<script src="script.js?v=20260929c" defer></script>
 </body>
 </html>

@@ -146,6 +146,8 @@ header.scrolled {
 .nav-more { position: relative; }
 .nav-more summary { cursor: pointer; list-style: none; }
 .nav-more summary::-webkit-details-marker { display: none; }
+.nav-collections > details { position: static; display: contents; }
+.nav-collections summary { display: none; }
 .nav-submenu { position: absolute; top: calc(100% + 16px); left: -20px; min-width: 210px; padding: 14px 20px; background: var(--c-black); border-top: 2px solid var(--c-cyan); box-shadow: 0 16px 32px rgba(0,0,0,0.2); }
 .nav-submenu li + li { margin-top: 12px; }
 .nav-submenu a { font-size: 0.95rem !important; font-weight: 400; white-space: nowrap; }
@@ -255,8 +257,11 @@ header.scrolled {
 @media (min-width: 1081px) {
   .nav-more details { padding-bottom: 10px; margin-bottom: -10px; }
   .nav-submenu { top: 100%; }
+  .nav-more.nav-collections .nav-submenu.mega-menu { display: none; }
   .nav-more details:not([open]):hover .nav-submenu { display: block; }
   .nav-more.nav-collections details:not([open]):hover .nav-submenu.mega-menu { display: block; }
+  .nav-collections > .nav-collections-link:hover + details .nav-submenu.mega-menu { display: block; }
+  .nav-more.nav-collections:hover .nav-submenu.mega-menu { display: block; }
 }
 .nav-cta { flex-shrink: 0; padding: 11px 20px; color: var(--c-white); border-color: rgba(255,255,255,0.5); font-size: 0.78rem; letter-spacing: 1.2px; white-space: nowrap; }
 .nav-cta:hover { background: var(--c-cyan); border-color: var(--c-cyan); }
@@ -762,6 +767,8 @@ header.scrolled {
   header.nav-open .language-toggle { position: fixed; top: 16px; right: 72px; z-index: 1101; }
   header.nav-open #nav > ul { flex-direction: column; text-align: center; gap: 28px; margin: auto 0; }
   header.nav-open #nav a { font-size: 1.3rem; }
+  header.nav-open .nav-collections { justify-content: center; }
+  header.nav-open .nav-collections .nav-submenu.mega-menu { display: block; }
   .nav-submenu { position: static; min-width: 0; margin-top: 14px; padding: 0; background: transparent; border: none; box-shadow: none; }
   .nav-collections .nav-submenu.mega-menu {
     position: static; transform: none; min-width: 0; width: 100%; max-width: 100%;
