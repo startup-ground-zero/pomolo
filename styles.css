@@ -434,20 +434,20 @@ header.scrolled {
 /* ===========================================================================
   Services
   ========================================================================== */
-.services { background: var(--c-black-soft); color: var(--c-white); }
-.services .eyebrow { color: var(--c-cyan-light); }
-.services h2, .services h3 { color: var(--c-white); }
+.services { background: var(--c-off-white); color: var(--c-black); }
+.services .eyebrow { color: var(--c-cyan); }
+.services h2, .services h3 { color: var(--c-black); }
 .services-heading { display: flex; align-items: end; justify-content: space-between; gap: 60px; }
-.services-heading > p { max-width: 470px; color: rgba(255,255,255,0.65); font-weight: 300; }
-.service-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 58px; border-top: 1px solid rgba(255,255,255,0.16); }
-.service-item { min-height: 220px; padding: 34px 28px 28px; border-right: 1px solid rgba(255,255,255,0.16); }
+.services-heading > p { max-width: 470px; color: var(--c-grey); font-weight: 300; }
+.service-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 58px; border-top: 1px solid rgba(10,10,10,0.14); }
+.service-item { min-height: 220px; padding: 34px 28px 28px; border-right: 1px solid rgba(10,10,10,0.14); }
 .service-item:first-child { padding-left: 0; }
 .service-item:last-child { border-right: none; }
 .service-item h3 { font-size: 1.45rem; margin-bottom: 14px; }
-.service-item p { color: rgba(255,255,255,0.62); font-size: 0.9rem; font-weight: 300; }
+.service-item p { color: var(--c-grey); font-size: 0.9rem; font-weight: 300; }
 .services-actions { display: flex; gap: 16px; margin-top: 34px; flex-wrap: wrap; }
-.services .btn-outline { border-color: rgba(255,255,255,0.55); color: var(--c-white); }
-.services .btn-outline:hover { background: var(--c-white); border-color: var(--c-white); color: var(--c-black); }
+.services .btn-outline { border-color: rgba(10,10,10,0.55); color: var(--c-black); }
+.services .btn-outline:hover { background: var(--c-black); border-color: var(--c-black); color: var(--c-white); }
 
 /* ==========================================================================
    About
