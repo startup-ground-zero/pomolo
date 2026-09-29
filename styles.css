@@ -581,6 +581,9 @@ header.scrolled {
   transition: border-color var(--transition), background var(--transition);
 }
 .brand-logo-item img { max-width: 100%; max-height: 70px; width: auto; height: auto; object-fit: contain; }
+.brand-logo-item--text { flex-direction: column; gap: 8px; }
+.brand-logo-item--text span { font-weight: 600; }
+.brand-logo-item--text small { color: var(--c-grey); font-size: 0.65rem; letter-spacing: 1.2px; }
 .brand-logo-item:hover { border-color: #547668; background: var(--c-white); }
 
 .architect-partner-block { margin-bottom: 70px; }
