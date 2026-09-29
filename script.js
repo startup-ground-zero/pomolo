@@ -42,7 +42,7 @@ document.querySelector('#nav')?.addEventListener('click', event => {
   if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
 });
 
-document.querySelectorAll('.nav-more details').forEach(details => {
+document.querySelectorAll('.nav-more:not(.nav-collections) details').forEach(details => {
   const submenu = details.querySelector('.nav-submenu');
   let closeTimer;
 
@@ -65,18 +65,52 @@ document.querySelectorAll('.nav-more details').forEach(details => {
   submenu?.addEventListener('mouseleave', closeMenu);
 });
 
-document.querySelectorAll('.nav-collections > details > summary').forEach(summary => {
-  const collectionsItem = summary.closest('.nav-collections');
-  if (!collectionsItem || collectionsItem.querySelector('.nav-collections-link')) return;
+function initialiseCollectionsNavigation() {
+  document.querySelectorAll('.nav-collections > details > summary').forEach(summary => {
+    const collectionsItem = summary.closest('.nav-collections');
+    const details = summary.parentElement;
+    if (!collectionsItem || !(details instanceof HTMLDetailsElement)) return;
 
-  const catalogueLink = document.createElement('a');
-  catalogueLink.href = 'catalogue.html';
-  catalogueLink.className = 'nav-collections-link';
-  catalogueLink.textContent = summary.textContent.trim();
-  collectionsItem.insertBefore(catalogueLink, summary.parentElement);
-  summary.parentElement.open = true;
-  summary.replaceChildren();
-  summary.setAttribute('aria-label', 'Open Collections menu');
+    details.open = true;
+    if (collectionsItem.querySelector('.nav-collections-link')) return;
+
+    const catalogueLink = document.createElement('a');
+    catalogueLink.href = 'catalogue.html';
+    catalogueLink.className = 'nav-collections-link';
+    catalogueLink.textContent = summary.textContent.trim();
+    collectionsItem.insertBefore(catalogueLink, details);
+    summary.replaceChildren();
+    summary.setAttribute('aria-label', 'Open Collections menu');
+  });
+}
+
+initialiseCollectionsNavigation();
+
+document.querySelectorAll('.nav-collections').forEach(collectionsItem => {
+  const details = collectionsItem.querySelector('details');
+  const submenu = collectionsItem.querySelector('.mega-menu');
+  let closeTimer;
+
+  const openMenu = () => {
+    if (!window.matchMedia('(min-width: 1081px)').matches) return;
+    window.clearTimeout(closeTimer);
+    if (details) details.open = true;
+    collectionsItem.classList.add('collections-menu-open');
+  };
+
+  const closeMenu = () => {
+    if (!window.matchMedia('(min-width: 1081px)').matches) return;
+    closeTimer = window.setTimeout(() => {
+      if (!collectionsItem.matches(':hover') && !submenu?.matches(':hover')) {
+        collectionsItem.classList.remove('collections-menu-open');
+      }
+    }, 400);
+  };
+
+  collectionsItem.addEventListener('mouseenter', openMenu);
+  collectionsItem.addEventListener('mouseleave', closeMenu);
+  submenu?.addEventListener('mouseenter', openMenu);
+  submenu?.addEventListener('mouseleave', closeMenu);
 });
 
 // Keep the collections menu consistent across the static pages.
@@ -546,6 +580,7 @@ function applyLanguage(language) {
   translateTextNodes(language);
   translateAttributes(language);
   updateQuoteSubject(language);
+  initialiseCollectionsNavigation();
 
   const button = document.querySelector('.language-toggle');
   if (button) {

@@ -262,6 +262,7 @@ header.scrolled {
   .nav-more.nav-collections details:not([open]):hover .nav-submenu.mega-menu { display: block; }
   .nav-collections > .nav-collections-link:hover + details .nav-submenu.mega-menu { display: block; }
   .nav-more.nav-collections:hover .nav-submenu.mega-menu { display: block; }
+  .nav-more.nav-collections.collections-menu-open .nav-submenu.mega-menu { display: block; }
 }
 .nav-cta { flex-shrink: 0; padding: 11px 20px; color: var(--c-white); border-color: rgba(255,255,255,0.5); font-size: 0.78rem; letter-spacing: 1.2px; white-space: nowrap; }
 .nav-cta:hover { background: var(--c-cyan); border-color: var(--c-cyan); }
