@@ -156,7 +156,7 @@ header.scrolled {
 .nav-collections { position: relative; }
 .nav-collections .nav-submenu.mega-menu {
   position: fixed;
-  top: 78px;
+  top: 70px;
   left: 50%;
   transform: translateX(-50%);
   width: min(1180px, calc(100vw - 32px));
@@ -745,9 +745,13 @@ header.scrolled {
   .catalogue-viewer-panel { max-height: 96vh; }
   .catalogue-viewer-header { padding: 18px 20px; }
   .catalogue-viewer-header h2 { font-size: 1.6rem; }
-  .catalogue-preview { grid-template-columns: 1fr; gap: 20px; padding: 20px; }
-  .catalogue-preview-sheet { min-height: 330px; padding: 40px; }
-  .catalogue-list { max-height: 300px; }
+  .catalogue-preview { grid-template-columns: 1fr; gap: 14px; padding: 14px; }
+  .catalogue-preview-sheet { min-height: 190px; padding: 24px 32px; }
+  .catalogue-preview-brand { width: 120px; }
+  .catalogue-preview-sheet h3 { margin-top: 10px; font-size: clamp(1.8rem, 8vw, 2.4rem); }
+  .catalogue-preview-sheet p { margin-top: 10px; }
+  .catalogue-preview-rule { margin: 18px 0; }
+  .catalogue-list { max-height: 340px; }
   .catalogue-list-item { align-items: stretch; flex-direction: column; gap: 10px; }
   .catalogue-list-open { text-align: center; }
   .catalogue-viewer-actions { padding: 14px 20px; justify-content: stretch; }
