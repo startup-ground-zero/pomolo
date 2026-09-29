@@ -773,7 +773,7 @@ header.scrolled {
   header.nav-open #nav a { font-size: 1.3rem; }
   header.nav-open .nav-more > details > summary { font-size: 1.3rem; }
   header.nav-open .nav-collections { justify-content: center; }
-  header.nav-open .nav-collections .nav-submenu.mega-menu { display: block; }
+  header.nav-open .nav-collections .nav-submenu.mega-menu { display: none; }
   .nav-submenu { position: static; min-width: 0; margin-top: 14px; padding: 0; background: transparent; border: none; box-shadow: none; }
   .nav-collections .nav-submenu.mega-menu {
     position: static; transform: none; min-width: 0; width: 100%; max-width: 100%;
