@@ -249,6 +249,7 @@ if (catalogueViewer) {
             if (card.dataset.categoryGroup === group) {
               card.classList.remove('hidden-card');
               card.style.display = '';
+              card.classList.add('in-view', 'filter-visible');
             } else {
               card.classList.add('hidden-card');
               card.style.display = 'none';
@@ -289,6 +290,7 @@ if (categoryTabButtons.length > 0) {
         if (filter === 'all' || group === filter) {
           card.classList.remove('hidden-card');
           card.style.display = '';
+          card.classList.add('in-view', 'filter-visible');
         } else {
           card.classList.add('hidden-card');
           card.style.display = 'none';

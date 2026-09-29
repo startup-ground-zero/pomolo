@@ -410,6 +410,7 @@ header.scrolled {
 .collection-card.hidden-card { display: none !important; }
 .collection-row.hidden-row { display: none !important; }
 .collection-card.in-view { animation: fadeUp 0.7s ease forwards; animation-delay: calc(var(--i) * 0.08s); }
+.collection-card.filter-visible { opacity: 1; transform: none; animation: none; }
 .collection-card:hover, .collection-card:focus-visible {
   transform: translateY(-6px); box-shadow: 0 16px 32px rgba(113,150,168,0.16); border-color: var(--c-cyan); outline: none;
 }
@@ -705,6 +706,7 @@ header.scrolled {
 @media (max-width: 1024px) {
   .collection-grid { grid-template-columns: repeat(2, 1fr); }
   .about-grid, .contact-grid, .owner-grid { grid-template-columns: 1fr; }
+  .about-copy, .owner-grid .owner-copy { order: -1; }
   .services-heading, .projects-layout, .consultation-layout { grid-template-columns: 1fr; display: grid; }
   .service-grid { grid-template-columns: repeat(2, 1fr); }
   .service-item:nth-child(2) { border-right: none; }
@@ -713,7 +715,7 @@ header.scrolled {
   .brands-page .information-card { grid-template-columns: 1fr; gap: 10px; }
   .brands-page .information-card p { padding-right: 0; }
   .about-media > .about-photo { height: 380px; }
-  .owner-grid .owner-media { order: -1; }
+  .owner-grid .owner-media { order: initial; }
   .brand-logo-grid { grid-template-columns: repeat(2, 1fr); }
   .architect-partner-card { grid-template-columns: 1fr; gap: 30px; padding: 32px; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
@@ -778,6 +780,13 @@ header.scrolled {
   .mega-view-all { font-size: 0.95rem !important; }
   .nav-submenu li + li { margin-top: 14px; }
   .nav-submenu a { font-size: 1rem !important; }
+  header.nav-open .nav-more:not(.nav-collections) .nav-submenu {
+    width: min(260px, 100%); margin: 14px auto 0; padding: 12px 18px;
+    border-top: 1px solid rgba(255,255,255,0.25); border-bottom: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.06);
+  }
+  header.nav-open .nav-more:not(.nav-collections) .nav-submenu li + li { margin-top: 8px; }
+  header.nav-open .nav-more:not(.nav-collections) .nav-submenu a { color: var(--c-cyan-light) !important; }
   .category-filter-tabs { justify-content: center; }
   .collection-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
