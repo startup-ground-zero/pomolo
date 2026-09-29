@@ -43,12 +43,26 @@ document.querySelector('#nav')?.addEventListener('click', event => {
 });
 
 document.querySelectorAll('.nav-more details').forEach(details => {
-  details.addEventListener('mouseenter', () => {
-    if (window.matchMedia('(min-width: 1081px)').matches) details.open = true;
-  });
-  details.addEventListener('mouseleave', () => {
-    if (window.matchMedia('(min-width: 1081px)').matches) details.open = false;
-  });
+  const submenu = details.querySelector('.nav-submenu');
+  let closeTimer;
+
+  const openMenu = () => {
+    if (!window.matchMedia('(min-width: 1081px)').matches) return;
+    window.clearTimeout(closeTimer);
+    details.open = true;
+  };
+
+  const closeMenu = () => {
+    if (!window.matchMedia('(min-width: 1081px)').matches) return;
+    closeTimer = window.setTimeout(() => {
+      if (!details.matches(':hover') && !submenu?.matches(':hover')) details.open = false;
+    }, 180);
+  };
+
+  details.addEventListener('mouseenter', openMenu);
+  details.addEventListener('mouseleave', closeMenu);
+  submenu?.addEventListener('mouseenter', openMenu);
+  submenu?.addEventListener('mouseleave', closeMenu);
 });
 
 // Keep the collections menu consistent across the static pages.
@@ -400,11 +414,12 @@ const greekTranslations = {
   'A Personal Vision': 'Ένα προσωπικό όραμα', 'Meet the Owner': 'Γνωρίστε τον ιδρυτή',
   'is shaped by a passion for Cycladic architecture and refined living. That point of view guides every piece selected for the showroom and every project created for Mykonos homes and villas.': 'διαμορφώνεται από το πάθος για την κυκλαδίτικη αρχιτεκτονική και την εκλεπτυσμένη διαβίωση. Αυτή η οπτική καθοδηγεί κάθε επιλογή για το showroom και κάθε έργο για κατοικίες και βίλες στη Μύκονο.',
   'Every collection is personally curated and every client relationship personally overseen, because true luxury is in the details.': 'Κάθε συλλογή επιμελείται προσωπικά και κάθε σχέση με πελάτη παρακολουθείται στενά, γιατί η αληθινή πολυτέλεια βρίσκεται στις λεπτομέρειες.',
+  'Inside the showroom': 'Μέσα στο showroom', 'Discover the considered collections and refined details waiting inside our Mykonos store.': 'Ανακαλύψτε τις προσεκτικά επιλεγμένες συλλογές και τις εκλεπτυσμένες λεπτομέρειες που σας περιμένουν στο κατάστημά μας στη Μύκονο.', 'Elias K. Liakopoulos': 'Ηλίας Κ. Λιακόπουλος',
   'After all, a satisfied client is the master key to new eras, and as Elias often says: ‘The': 'Άλλωστε, ένας ικανοποιημένος πελάτης είναι το κλειδί για νέες εποχές και, όπως λέει συχνά ο Ηλίας: «Η',
   'price': 'τιμή', 'BE FORGOTTEN': 'ΘΑ ΞΕΧΑΣΤΕΙ', 'QUALITY': 'ΠΟΙΟΤΗΤΑ', 'of any product will eventually': 'οποιουδήποτε προϊόντος τελικά', 'never.’': 'ποτέ.»',
   'The': 'Η', 'Promise': 'Υπόσχεση', 'Visit Us': 'Επισκεφθείτε μας', 'Plan Your Next Interior Project': 'Σχεδιάστε το επόμενο έργο εσωτερικού χώρου',
   'Our design consultants are available for private appointments, villa projects and trade enquiries.': 'Οι σύμβουλοι σχεδιασμού μας είναι διαθέσιμοι για ιδιωτικά ραντεβού, έργα βιλών και επαγγελματικές ερωτήσεις.',
-  'Showroom': 'Εκθεσιακός χώρος', 'Email': 'Email', 'Phone': 'Τηλέφωνο', 'Instagram': 'Instagram', 'Full Name': 'Ονοματεπώνυμο', 'Email Address': 'Διεύθυνση email', 'Phone Number': 'Αριθμός τηλεφώνου', 'Subject': 'Θέμα', 'Tell us about your project...': 'Πείτε μας για το έργο σας...', 'I agree to the': 'Συμφωνώ με την', 'Privacy': 'Απόρρητο', 'Privacy Policy': 'Πολιτική Απορρήτου', 'Send Enquiry': 'Αποστολή ερωτήματος',
+  'Showroom': 'Εκθεσιακός χώρος', 'Ornos, Míkonos 84600': 'Όρνος, Μύκονος 84600', 'Email': 'Email', 'Phone': 'Τηλέφωνο', 'Instagram': 'Instagram', 'Full Name': 'Ονοματεπώνυμο', 'Email Address': 'Διεύθυνση email', 'Phone Number': 'Αριθμός τηλεφώνου', 'Subject': 'Θέμα', 'Tell us about your project...': 'Πείτε μας για το έργο σας...', 'I agree to the': 'Συμφωνώ με την', 'Privacy': 'Απόρρητο', 'Privacy Policy': 'Πολιτική Απορρήτου', 'Send Enquiry': 'Αποστολή ερωτήματος',
   'Pomolo Mykonos | Interior & Exterior. Luxury. Quality.': 'Pomolo Mykonos | Εσωτερικός και εξωτερικός χώρος. Πολυτέλεια. Ποιότητα.', 'Pomolo Mykonos — curated bathrooms, indoor & outdoor furniture, taps, tiles, fabrics, blinds, curtains and parasols for the finest homes.': 'Pomolo Mykonos — επιλεγμένα είδη μπάνιου, έπιπλα εσωτερικού και εξωτερικού χώρου, μπαταρίες, πλακάκια, υφάσματα, στόρια, κουρτίνες και ομπρέλες για τις πιο ξεχωριστές κατοικίες.', 'Curated bathrooms, indoor & outdoor furniture, taps, tiles, fabrics, blinds, curtains and parasols for the finest homes in Mykonos.': 'Επιλεγμένα είδη μπάνιου, έπιπλα εσωτερικού και εξωτερικού χώρου, μπαταρίες, πλακάκια, υφάσματα, στόρια, κουρτίνες και ομπρέλες για τις πιο ξεχωριστές κατοικίες στη Μύκονο.',
   'Brands & Partners | Pomolo Mykonos': 'Μάρκες και Συνεργάτες | Pomolo Mykonos', 'We select enduring brands and specialist makers whose craftsmanship belongs in exceptional interiors.': 'Επιλέγουμε διαχρονικές μάρκες και εξειδικευμένους δημιουργούς, των οποίων η δεξιοτεχνία ανήκει σε ξεχωριστούς εσωτερικούς χώρους.',
   'Partner Brands': 'Συνεργαζόμενες μάρκες', 'Selected international brands we collaborate with for sanitaryware, furniture, outdoor living, surfaces and textiles.': 'Επιλεγμένες διεθνείς μάρκες με τις οποίες συνεργαζόμαστε για είδη υγιεινής, έπιπλα, εξωτερικούς χώρους, επιφάνειες και υφάσματα.',
