@@ -41,6 +41,12 @@ h1, h2, h3, h4, blockquote {
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
+.skip-link {
+  position: fixed; top: 12px; left: 12px; z-index: 3000; padding: 10px 14px;
+  background: var(--c-white); color: var(--c-black); border: 1px solid var(--c-black);
+  transform: translateY(-160%);
+}
+.skip-link:focus { transform: translateY(0); outline: 3px solid var(--c-cyan); outline-offset: 2px; }
 .brand-inline { display: inline-block; width: 4em; height: auto; vertical-align: -0.22em; }
 .brand-inline-display { width: 7em; vertical-align: -0.3em; }
 .eyebrow .brand-inline { width: 7em; vertical-align: -0.35em; }
@@ -239,12 +245,6 @@ header.scrolled {
   font-family: var(--font-sans) !important;
   font-size: 13px !important;
   letter-spacing: 1.2px !important;
-  text-transform: uppercase !important;
-  color: var(--c-cyan-light) !important;
-  font-weight: 600 !important;
-}
-  font-size: 1rem !important;
-  letter-spacing: 1.5px !important;
   text-transform: uppercase !important;
   color: var(--c-cyan-light) !important;
   font-weight: 600 !important;
@@ -634,6 +634,7 @@ header.scrolled {
 .gallery-page .gallery-page-content h1 { color: var(--c-black); }
 .gallery-page .gallery-page-content .gallery-sub { color: var(--c-grey); }
 .gallery-page .gallery-page-content .instagram-embed { padding: 10px; background: var(--c-white); box-shadow: 0 18px 42px rgba(10,10,10,0.12); }
+.gallery-fallback { max-width: 680px; margin: 22px auto 0; color: var(--c-grey); font-size: 0.9rem; font-weight: 300; }
 .gallery-page .gallery-page-content .btn-outline { border-color: var(--c-black); color: var(--c-black); }
 .gallery-page .gallery-page-content .btn-outline:hover { background: var(--c-black); border-color: var(--c-black); color: var(--c-white); }
 
@@ -659,6 +660,8 @@ header.scrolled {
 .contact-list .address-link:hover, .contact-list .address-link:focus-visible { border-color: var(--c-cyan); background: var(--c-cyan-dim); color: var(--c-black); outline: none; }
 .contact-form { display: flex; flex-direction: column; gap: 18px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.form-field { display: flex; flex-direction: column; gap: 7px; }
+.form-label { color: var(--c-black); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.6px; text-transform: uppercase; }
 .contact-form input, .contact-form textarea {
   padding: 15px 18px; border: 1px solid #dfe3e6; border-radius: var(--radius);
   font-family: var(--font-sans); font-size: 0.92rem; background: var(--c-off-white);

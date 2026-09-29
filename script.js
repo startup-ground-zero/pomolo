@@ -6,6 +6,42 @@ const hidePreloader = () => {
 document.addEventListener('DOMContentLoaded', hidePreloader, { once: true });
 window.setTimeout(hidePreloader, 1200);
 
+function renderSharedHeaders() {
+  document.querySelectorAll('header[data-shared-header]').forEach(sharedHeader => {
+    const isHomePage = sharedHeader.dataset.home === 'true';
+    const homeLink = anchor => isHomePage ? `#${anchor}` : `index.html#${anchor}`;
+
+    sharedHeader.innerHTML = `
+      <div class="container header-inner">
+        <a href="${homeLink('home')}" class="brand">
+          <img src="logo.png" alt="Pomolo emblem" class="brand-logo">
+          <img src="Pomolo_original-removebg.png" alt="Pomolo interior equipment" class="official-logo">
+        </a>
+        <nav id="nav">
+          <ul>
+            <li><a href="${homeLink('home')}">Home</a></li>
+            <li class="nav-more nav-collections">
+              <a href="catalogue.html" class="nav-collections-link">Collections</a>
+              <details open>
+                <summary aria-label="Open Collections menu"></summary>
+                <div class="nav-submenu mega-menu"><div class="mega-grid"></div><div class="mega-footer"><a href="catalogue.html" class="mega-view-all">View All Catalogues</a></div></div>
+              </details>
+            </li>
+            <li class="nav-more"><details><summary>Explore</summary><ul class="nav-submenu"><li><a href="brands.html">Brands &amp; Partners</a></li><li><a href="projects.html">Cyclades</a></li></ul></details></li>
+            <li><a href="${homeLink('services')}">Services</a></li>
+            <li><a href="${homeLink('about')}">About Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="${homeLink('contact')}">Contact</a></li>
+          </ul>
+        </nav>
+        <a href="${homeLink('contact')}" class="btn btn-outline nav-cta">Book a Consultation</a>
+        <button id="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>`;
+  });
+}
+
+renderSharedHeaders();
+
 // Header scroll state
 const header = document.getElementById('header');
 const backToTop = document.getElementById('back-to-top');
@@ -41,6 +77,21 @@ document.querySelector('#nav')?.addEventListener('click', event => {
   document.documentElement.classList.remove('nav-open');
   if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
 });
+
+function addSkipLink() {
+  if (document.querySelector('.skip-link')) return;
+  const target = document.querySelector('main') || document.getElementById('home');
+  if (!target) return;
+  if (!target.id) target.id = 'main-content';
+
+  const skipLink = document.createElement('a');
+  skipLink.className = 'skip-link';
+  skipLink.href = `#${target.id}`;
+  skipLink.textContent = 'Skip to main content';
+  document.body.prepend(skipLink);
+}
+
+addSkipLink();
 
 document.querySelectorAll('.nav-more:not(.nav-collections) details').forEach(details => {
   const submenu = details.querySelector('.nav-submenu');
@@ -137,17 +188,6 @@ document.querySelectorAll('.mega-grid').forEach(menu => {
     <div class="mega-col">
       <a href="catalogue.html?category=lighting" class="mega-cat-title">Lighting</a>
     </div>`;
-});
-
-// Use Backspace for page navigation without interfering with form editing.
-document.addEventListener('keydown', (event) => {
-  const target = event.target;
-  const isEditing = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target.isContentEditable;
-
-  if (event.key === 'Backspace' && !isEditing && !event.altKey && !event.ctrlKey && !event.metaKey) {
-    event.preventDefault();
-    window.history.back();
-  }
 });
 
 // Reveal collection cards on scroll
@@ -263,11 +303,29 @@ if (catalogueViewer) {
     if (event.target === catalogueViewer) closeCatalogueViewer();
   });
   document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && !catalogueViewer.hidden) closeCatalogueViewer();
+    if (catalogueViewer.hidden) return;
+    if (event.key === 'Escape') {
+      closeCatalogueViewer();
+      return;
+    }
+    if (event.key !== 'Tab') return;
+
+    const focusable = [...catalogueViewer.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+      .filter(element => !element.hasAttribute('hidden'));
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
   });
 
   const selectedCategory = new URLSearchParams(window.location.search).get('category');
-  const selectedCatalogueCard = document.querySelector(`.catalogue-card[data-category="${selectedCategory}"]`);
   const categoryGroups = {
     furniture: 'furniture',
     indoor: 'furniture',
@@ -283,6 +341,9 @@ if (catalogueViewer) {
     parasols: 'parasols',
     lighting: 'lighting'
   };
+  const selectedCatalogueCard = Object.hasOwn(categoryGroups, selectedCategory)
+    ? document.querySelector(`.catalogue-card[data-category="${selectedCategory}"]`)
+    : null;
   const selectedCategoryGroup = selectedCatalogueCard?.dataset.categoryGroup || categoryGroups[selectedCategory];
   if (selectedCategoryGroup) {
     const group = selectedCategoryGroup;
@@ -378,7 +439,7 @@ const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // Get category parameter from URL
-const categoryParam = new URLSearchParams(window.location.search).get('category');
+const requestedCategoryParam = new URLSearchParams(window.location.search).get('category');
 const categoryNames = {
   'bathroom': 'Bathroom',
   'furniture': 'Furniture',
@@ -395,6 +456,7 @@ const categoryNames = {
   'lighting': 'Lighting',
   'general': 'General'
 };
+const categoryParam = Object.hasOwn(categoryNames, requestedCategoryParam) ? requestedCategoryParam : null;
 
 // Update ALL "Ask for a Quote" links if category is in URL
 if (categoryParam) {
@@ -515,7 +577,12 @@ const greekTranslations = {
   'For questions about these terms, contact': 'Για ερωτήσεις σχετικά με αυτούς τους όρους, επικοινωνήστε με το',
   'Thank You | Pomolo Mykonos': 'Ευχαριστούμε | Pomolo Mykonos', 'Thank you.': 'Ευχαριστούμε.', 'Your message has been sent to our showroom team. We will be in touch soon.': 'Το μήνυμά σας έχει σταλεί στην ομάδα του showroom μας. Θα επικοινωνήσουμε σύντομα μαζί σας.', 'Return Home': 'Επιστροφή στην αρχική', 'Pomolo website enquiry': 'Ερώτημα μέσω ιστοτόπου Pomolo', 'Pomolo consultation request': 'Αίτημα ραντεβού Pomolo', 'Pomolo quote request': 'Αίτημα προσφοράς Pomolo', 'Catalogue quote request - General': 'Αίτημα προσφοράς καταλόγου - Γενικά',
   '. All rights reserved.': '. Με επιφύλαξη παντός δικαιώματος.', 'All rights reserved.': 'Με επιφύλαξη παντός δικαιώματος.', 'Terms': 'Όροι', 'Architecture Studio Logo': 'Λογότυπο αρχιτεκτονικού γραφείου', 'Toggle menu': 'Εναλλαγή μενού', 'Back to top': 'Επιστροφή στην κορυφή', 'Scroll down': 'Κύλιση προς τα κάτω', 'Pomolo Mykonos on Instagram': 'Pomolo Mykonos στο Instagram', 'Pomolo Mykonos on Facebook': 'Pomolo Mykonos στο Facebook',
-  'Enter an email address with a domain, such as name@example.com.': 'Εισαγάγετε μια διεύθυνση email με όνομα τομέα, όπως name@example.com.'
+  'Enter an email address with a domain, such as name@example.com.': 'Εισαγάγετε μια διεύθυνση email με όνομα τομέα, όπως name@example.com.',
+  'Skip to main content': 'Μετάβαση στο κύριο περιεχόμενο',
+  'Your submission is processed by FormSubmit. Please do not include sensitive personal information.': 'Η υποβολή σας επεξεργάζεται από το FormSubmit. Μην συμπεριλαμβάνετε ευαίσθητες προσωπικές πληροφορίες.',
+  'If the feed is unavailable, follow Pomolo Mykonos on Instagram for the latest arrivals and installations.': 'Αν η ροή δεν είναι διαθέσιμη, ακολουθήστε την Pomolo Mykonos στο Instagram για τις τελευταίες αφίξεις και εγκαταστάσεις.',
+  'Third-party gallery': 'Γκαλερί τρίτου μέρους',
+  'Our Gallery uses Elfsight to display the Pomolo Mykonos Instagram feed. When the gallery loads, Elfsight and Instagram may process technical information such as your IP address and browser data according to their own privacy notices.': 'Η Γκαλερί μας χρησιμοποιεί το Elfsight για την εμφάνιση της ροής Instagram της Pomolo Mykonos. Όταν φορτώνει η γκαλερί, το Elfsight και το Instagram ενδέχεται να επεξεργάζονται τεχνικές πληροφορίες, όπως τη διεύθυνση IP και δεδομένα του προγράμματος περιήγησης, σύμφωνα με τις δικές τους πολιτικές απορρήτου.'
 };
 
 const originalTextNodes = new WeakMap();
