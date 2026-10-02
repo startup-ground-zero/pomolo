@@ -34,7 +34,7 @@ function renderSharedHeaders() {
             <li><a href="${homeLink('contact')}">Contact</a></li>
           </ul>
         </nav>
-        <a href="${homeLink('contact')}" class="btn btn-outline nav-cta">Book a Consultation</a>
+        <a href="consultation.html" class="btn btn-outline nav-cta">Book a Consultation</a>
         <button id="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
       </div>`;
   });
