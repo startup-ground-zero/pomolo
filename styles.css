@@ -570,10 +570,13 @@ header.scrolled {
 .section-intro.text-center p.eyebrow { color: #547668; }
 .section-intro.text-center h2 { max-width: 600px; margin: 0 auto 12px; }
 .section-intro.text-center p { max-width: 580px; margin: 0 auto; color: var(--c-grey); font-weight: 300; }
+.brand-filter-tabs { justify-content: center; margin: 0 0 36px; }
 
 .brand-logo-grid {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
 }
+.brand-entry { min-width: 0; color: inherit; text-decoration: none; }
+.brand-entry[hidden] { display: none; }
 .brand-logo-item {
   height: 120px; display: flex; align-items: center; justify-content: center;
   padding: 20px; background: var(--c-white); border: 1px solid #d1d5db;
@@ -582,10 +585,12 @@ header.scrolled {
   transition: border-color var(--transition), background var(--transition);
 }
 .brand-logo-item img { max-width: 100%; max-height: 70px; width: auto; height: auto; object-fit: contain; }
+.brand-entry > p { margin: 10px 0 0; color: #547668; font-size: 0.7rem; font-weight: 600; letter-spacing: 1px; text-align: center; text-transform: uppercase; }
 .brand-logo-item--text { flex-direction: column; gap: 8px; }
 .brand-logo-item--text span { font-weight: 600; }
 .brand-logo-item--text small { color: var(--c-grey); font-size: 0.65rem; letter-spacing: 1.2px; }
-.brand-logo-item:hover { border-color: #547668; background: var(--c-white); }
+.brand-entry:hover .brand-logo-item, .brand-entry:focus-visible .brand-logo-item { border-color: #547668; background: var(--c-white); }
+.brand-entry:focus-visible { outline: none; }
 
 .architect-partner-block { margin-bottom: 70px; }
 .architect-partner-card {

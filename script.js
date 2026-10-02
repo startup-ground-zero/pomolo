@@ -421,6 +421,22 @@ if (categoryTabButtons.length > 0) {
   });
 }
 
+// Brand category filters.
+const brandFilterTabs = document.querySelector('.brand-filter-tabs');
+if (brandFilterTabs) {
+  const brandEntries = document.querySelectorAll('.brand-entry');
+  brandFilterTabs.querySelectorAll('.category-tab-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+      brandFilterTabs.querySelectorAll('.category-tab-btn').forEach(tab => tab.classList.remove('active'));
+      button.classList.add('active');
+      brandEntries.forEach(entry => {
+        entry.hidden = filter !== 'all' && entry.dataset.category !== filter;
+      });
+    });
+  });
+}
+
 // Shared footer for the additional pages.
 const sharedFooter = document.querySelector('.shared-footer');
 if (sharedFooter) {
@@ -497,12 +513,12 @@ if (catalogueCards.length > 0) {
 // Site-wide English / Greek language support.
 const greekTranslations = {
   'Home': 'Αρχική', 'Collections': 'Συλλογές', 'Explore': 'Εξερεύνηση', 'Services': 'Υπηρεσίες', 'About Us': 'Σχετικά με εμάς', 'Gallery': 'Γκαλερί', 'Contact': 'Επικοινωνία', 'Consultation': 'Ραντεβού',
-  'Furniture': 'Έπιπλα', 'Indoor': 'Εσωτερικού χώρου', 'Outdoor': 'Εξωτερικού χώρου', 'Indoor Furniture': 'Έπιπλα εσωτερικού χώρου', 'Outdoor Furniture': 'Έπιπλα εξωτερικού χώρου', 'Tiles': 'Πλακάκια', 'Bathroom': 'Μπάνιο', 'Taps': 'Μπαταρίες', 'Sanitary Ware': 'Είδη υγιεινής', 'Bathroom Accessories': 'Αξεσουάρ μπάνιου', 'Accessories': 'Αξεσουάρ', 'Curtains': 'Κουρτίνες', 'Blinds': 'Στόρια', 'Fabric': 'Υφάσματα', 'Parasols': 'Ομπρέλες', 'Lighting': 'Φωτισμός', 'General': 'Γενικά',
+  'Furniture': 'Έπιπλα', 'Indoor': 'Εσωτερικού χώρου', 'Outdoor': 'Εξωτερικού χώρου', 'Indoor Furniture': 'Έπιπλα εσωτερικού χώρου', 'Outdoor Furniture': 'Έπιπλα εξωτερικού χώρου', 'Office Furniture': 'Έπιπλα γραφείου', 'Tiles': 'Πλακάκια', 'Tiles & Surfaces': 'Πλακάκια και επιφάνειες', 'Bathroom': 'Μπάνιο', 'Bathroom & Sanitaryware': 'Μπάνιο και είδη υγιεινής', 'Taps': 'Μπαταρίες', 'Sanitary Ware': 'Είδη υγιεινής', 'Bathroom Accessories': 'Αξεσουάρ μπάνιου', 'Accessories': 'Αξεσουάρ', 'Curtains': 'Κουρτίνες', 'Curtains & Blinds': 'Κουρτίνες και στόρια', 'Blinds': 'Στόρια', 'Fabric': 'Υφάσματα', 'Parasols': 'Ομπρέλες', 'Lighting': 'Φωτισμός', 'General': 'Γενικά',
   'Interior & Outdoor Furniture': 'Έπιπλα εσωτερικού και εξωτερικού χώρου', 'View All Catalogues': 'Δείτε όλους τους καταλόγους', 'Brands & Partners': 'Μάρκες και Συνεργάτες', 'Cyclades': 'Κυκλάδες',
   'Book a Consultation': 'Κλείστε ραντεβού', 'Ask for a Quote': 'Ζητήστε προσφορά', 'Catalogues': 'Κατάλογοι', 'Catalogue': 'Κατάλογος', 'Open PDF': 'Άνοιγμα PDF', 'Close': 'Κλείσιμο',
   'Interior - Exterior Quality Brands': 'Ποιοτικές μάρκες εσωτερικού και εξωτερικού χώρου', 'Explore Collections': 'Εξερευνήστε τις συλλογές',
   'Bespoke bathrooms, furniture & interior essentials, curated on the island of Mykonos.': 'Εξατομικευμένες λύσεις για μπάνιο, έπιπλα και είδη εσωτερικού χώρου, επιλεγμένες στη Μύκονο.',
-  'Our Collections': 'Οι συλλογές μας', 'Curated for Every Room, Indoors & Out': 'Επιλεγμένα για κάθε χώρο, μέσα και έξω', 'All': 'Όλα',
+  'Our Collections': 'Οι συλλογές μας', 'Curated for Every Room, Indoors & Out': 'Επιλεγμένα για κάθε χώρο, μέσα και έξω', 'All': 'Όλα', 'Filter brands by category': 'Φιλτράρισμα μαρκών ανά κατηγορία',
   'Considered pieces for living rooms, bedrooms and refined interiors.': 'Επιλεγμένα κομμάτια για καθιστικά, υπνοδωμάτια και εκλεπτυσμένους εσωτερικούς χώρους.',
   'Weather-ready silhouettes for terraces, gardens and poolside living.': 'Ανθεκτικά σχέδια για βεράντες, κήπους και χώρους δίπλα στην πισίνα.',
   'Natural stone & porcelain surfaces sourced from the finest ateliers.': 'Επιφάνειες από φυσική πέτρα και πορσελάνη από τα καλύτερα εργαστήρια.',
