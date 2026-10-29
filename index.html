@@ -35,7 +35,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=Righteous&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=20260929g">
-<style>@media (min-width:1025px) { .contact-grid .contact-form { margin-top: 115px; } }</style>
 <link rel="icon" href="logo.png" type="image/png">
 <link rel="apple-touch-icon" href="logo.png">
 <link rel="manifest" href="site.webmanifest">
@@ -52,6 +51,8 @@
   "email": "info@pomolo-mykonos.com",
   "telephone": "+30 22890 77800",
   "priceRange": "$$$",
+  "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "09:00", "closes": "18:00" },
+  "geo": { "@type": "GeoCoordinates", "latitude": 37.4262301, "longitude": 25.3235811 },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Ornos",
@@ -90,102 +91,6 @@
     <a href="#services" class="scroll-indicator" aria-label="Scroll down"><span></span></a>
 </section>
 
-<!-- Collections are available on the dedicated catalogue page. -->
-<template>
-  <div class="container">
-    <p class="eyebrow">Our Collections</p>
-    <h2 class="no-wrap">Curated for Every Room, Indoors &amp; Out</h2>
-    
-    <div class="category-filter-tabs">
-      <button type="button" class="category-tab-btn active" data-filter="all">All</button>
-      <button type="button" class="category-tab-btn" data-filter="furniture">Furniture</button>
-      <button type="button" class="category-tab-btn" data-filter="tiles">Tiles</button>
-      <button type="button" class="category-tab-btn" data-filter="bathroom">Bathroom</button>
-      <button type="button" class="category-tab-btn" data-filter="curtains">Curtains</button>
-      <button type="button" class="category-tab-btn" data-filter="parasols">Parasols</button>
-      <button type="button" class="category-tab-btn" data-filter="lighting">Lighting</button>
-    </div>
-
-    <div class="collection-rows">
-      <!-- Row 1: Interior and Outdoor Furniture -->
-      <div class="collection-row" data-row-group="furniture">
-        <h3 class="collection-row-title">Furniture</h3>
-        <div class="collection-grid row-grid-3">
-          <a href="catalogue.html?category=indoor" class="collection-card" data-category-group="furniture" style="--i:2"><span class="card-badge">Furniture</span><div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 26v-6a4 4 0 0 1 4-4h24a4 4 0 0 1 4 4v6"/><path d="M6 26h36a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2Z"/><path d="M8 36v4M40 36v4"/></svg></div><h3>Indoor</h3><p>Considered pieces for living rooms, bedrooms and refined interiors.</p></a>
-          <a href="catalogue.html?category=outdoor" class="collection-card" data-category-group="furniture" style="--i:3"><span class="card-badge">Furniture</span><div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 26v-6a4 4 0 0 1 4-4h24a4 4 0 0 1 4 4v6"/><path d="M6 26h36a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2Z"/><path d="M8 36v4M40 36v4"/></svg></div><h3>Outdoor</h3><p>Weather-ready silhouettes for terraces, gardens and poolside living.</p></a>
-        </div>
-      </div>
-
-      <!-- Row 2: Tiles -->
-      <div class="collection-row" data-row-group="tiles">
-        <h3 class="collection-row-title">Tiles</h3>
-        <div class="collection-grid row-grid-1">
-          <a href="catalogue.html?category=tiles" class="collection-card" data-category-group="tiles" style="--i:2">
-            <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="6" y="6" width="15" height="15" rx="1"/><rect x="27" y="6" width="15" height="15" rx="1"/><rect x="6" y="27" width="15" height="15" rx="1"/><rect x="27" y="27" width="15" height="15" rx="1"/></svg></div>
-            <h3>Tiles</h3>
-            <p>Natural stone &amp; porcelain surfaces sourced from the finest ateliers.</p>
-          </a>
-        </div>
-      </div>
-
-      <!-- Row 3: Bathroom with sub categories -->
-      <div class="collection-row" data-row-group="bathroom">
-        <h3 class="collection-row-title">Bathroom</h3>
-        <div class="collection-grid row-grid-3">
-          <a href="catalogue.html?category=taps" class="collection-card" data-category-group="bathroom" style="--i:4">
-            <span class="card-badge">Bathroom</span>
-            <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M16 8h8a4 4 0 0 1 4 4v6h6a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2"/><path d="M12 22v6a10 10 0 0 0 20 0v-2"/><path d="M22 40v2M12 40v-4M20 8v6"/></svg></div>
-            <h3>Taps</h3>
-            <p>Precision-engineered fixtures in brushed brass, chrome &amp; matte black.</p>
-          </a>
-          <a href="catalogue.html?category=sanitary-ware" class="collection-card" data-category-group="bathroom" style="--i:5">
-            <span class="card-badge">Bathroom</span>
-            <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 20h28v4a14 14 0 0 1-28 0v-4Z"/><path d="M24 8v6"/><path d="M20 8h8"/><path d="M18 38h12"/><path d="M24 34v4"/><path d="M14 20v-2a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v2"/></svg></div>
-            <h3>Sanitary Ware</h3>
-            <p>Architectural washbasins, freestanding pieces &amp; refined ceramic elements.</p>
-          </a>
-          <a href="catalogue.html?category=accessories" class="collection-card" data-category-group="bathroom" style="--i:8"><span class="card-badge">Bathroom</span><div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="24" cy="24" r="14"/><path d="M24 10v28M10 24h28"/></svg></div><h3>Accessories</h3><p>Finishing details that bring cohesion and character to every bathroom.</p></a>
-        </div>
-      </div>
-
-      <!-- Row 4: Curtains with subcategories -->
-      <div class="collection-row" data-row-group="curtains">
-        <h3 class="collection-row-title">Curtains</h3>
-        <div class="collection-grid row-grid-4">
-          <a href="catalogue.html?category=blinds" class="collection-card" data-category-group="curtains" style="--i:7">
-            <span class="card-badge">Curtains</span>
-            <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="7" y="6" width="34" height="36" rx="1"/><path d="M7 15h34M7 24h34M7 33h34"/><path d="M24 6v36"/></svg></div>
-            <h3>Blinds</h3>
-            <p>Tailored light control with an architectural finish.</p>
-          </a>
-          <a href="catalogue.html?category=fabric" class="collection-card" data-category-group="curtains" style="--i:8">
-            <span class="card-badge">Curtains</span>
-            <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 14c4-3 8-3 12 0s8 3 12 0 8-3 12 0"/><path d="M6 24c4-3 8-3 12 0s8 3 12 0 8-3 12 0"/><path d="M6 34c4-3 8-3 12 0s8 3 12 0 8-3 12 0"/></svg></div>
-            <h3>Fabric</h3>
-            <p>Luxurious weaves for upholstery, cushions &amp; soft furnishings.</p>
-          </a>
-        </div>
-      </div>
-      <div class="collection-row" data-row-group="parasols">
-        <h3 class="collection-row-title">Parasols</h3>
-        <div class="collection-grid row-grid-1">
-          <a href="catalogue.html?category=parasols" class="collection-card" data-category-group="parasols" style="--i:12">
-            <div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 22a18 18 0 0 1 36 0Z"/><path d="M24 22V4M24 22v20a4 4 0 0 1-6 3.5"/></svg></div>
-            <h3>Parasols</h3>
-            <p>Elegant shade solutions for terraces, pools &amp; the Aegean sun.</p>
-          </a>
-        </div>
-      </div>
-      <div class="collection-row" data-row-group="lighting">
-        <h3 class="collection-row-title">Lighting</h3>
-        <div class="collection-grid row-grid-1">
-          <a href="catalogue.html?category=lighting" class="collection-card" data-category-group="lighting" style="--i:13"><div class="card-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M16 28h16M18 34h12M20 40h8"/><path d="M15 24a12 12 0 1 1 18 0c-2 2-3 3-3 6H18c0-3-1-4-3-6Z"/><path d="M24 4v4M8 10l3 3M40 10l-3 3"/></svg></div><h3>Lighting</h3><p>Atmospheric fixtures and considered illumination for every space.</p></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <!-- Services -->
 <section id="services" class="section services">
   <div class="container">
@@ -218,7 +123,7 @@
       <p class="eyebrow">Since 2016 at Mykonos</p>
       <h2>An Island Standard of Interior Craftsmanship</h2>
       <p><img src="Pomolo_original-removebg.png" alt="Pomolo interior equipment" class="brand-inline brand-inline-display"> was born on the island of Mykonos, where Cycladic light meets uncompromising design. We source and curate the finest bathroom fittings, furniture, textiles and outdoor living pieces for discerning homes, villas and hospitality projects across the Aegean and beyond.</p>
-      <p>Having now established very strong partnerships with well-known international firms from Spain and especially from Italy, we can guarantee 100% customers' satisfaction.</p>
+      <p>Having established strong partnerships with well-known international firms from Spain and especially from Italy, we are committed to the complete satisfaction of our customers.</p>
       <p>Every piece in our showroom is chosen for one reason: it must embody our promise — <strong>Interior &amp; Exterior, Luxury, Quality.</strong></p>
     </div>
   </div>
@@ -288,6 +193,6 @@
 
 <button id="back-to-top" aria-label="Back to top">↑</button>
 
-<script src="script.js?v=20260929h" defer></script>
+<script src="script.js?v=20261029a" defer></script>
 </body>
 </html>

@@ -613,11 +613,6 @@ header.scrolled {
 }
 
 .brands-page .page-cta { background: #547668; }
-.professionals-page .page-hero { background: #314c5a; }
-.professionals-page .information-grid { counter-reset: service; gap: 0; background: #e8eef0; padding: 14px; }
-.professionals-page .information-card { position: relative; min-height: 340px; padding: 76px 34px 34px; border: none; border-top: 4px solid #314c5a; background: var(--c-white); }
-.professionals-page .information-card::before { counter-increment: service; content: "0" counter(service); position: absolute; top: 24px; left: 34px; color: var(--c-cyan); font-family: var(--font-serif); font-size: 2rem; font-weight: 600; }
-.professionals-page .page-cta { background: #314c5a; }
 
 /* ==========================================================================
    Gallery
