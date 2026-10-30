@@ -249,6 +249,14 @@ if (catalogueViewer) {
   // Per card (data-category): [{ title, url, size }]; cards without an entry show the placeholder list.
   const catalogueItems = {};
 
+  const driveFileId = url => /drive\.google\.com\/file\/d\/([\w-]+)/.exec(url)?.[1];
+  // Drive cannot preview large PDFs, so the View button is hidden from 100 MB up.
+  const isLargeFile = size => {
+    const match = /([\d.]+)\s*(KB|MB|GB)/i.exec(size ?? '');
+    if (!match) return false;
+    return parseFloat(match[1]) * { KB: 1 / 1024, MB: 1, GB: 1024 }[match[2].toUpperCase()] >= 100;
+  };
+
   const closeCatalogueViewer = () => {
     catalogueViewer.hidden = true;
     document.documentElement.classList.remove('dialog-open');
@@ -285,14 +293,26 @@ if (catalogueViewer) {
           itemTitle.append(sizeLabel);
         }
 
-        const openLink = document.createElement('a');
-        openLink.className = 'catalogue-list-open';
-        openLink.href = url;
-        openLink.target = '_blank';
-        openLink.rel = 'noopener noreferrer';
-        openLink.textContent = window.pomoloTranslateText?.('Download PDF') ?? 'Download PDF';
+        const fileId = driveFileId(url);
+        const downloadUrl = fileId ? `https://drive.google.com/uc?export=download&id=${fileId}` : url;
+        const actions = document.createElement('div');
+        actions.className = 'catalogue-list-actions';
 
-        item.append(itemTitle, openLink);
+        const addButton = (label, href, forceDownload = false) => {
+          const button = document.createElement('a');
+          button.className = 'catalogue-list-open';
+          button.href = href;
+          button.target = '_blank';
+          button.rel = 'noopener noreferrer';
+          if (forceDownload) button.setAttribute('download', '');
+          button.textContent = window.pomoloTranslateText?.(label) ?? label;
+          actions.append(button);
+        };
+
+        if (!isLargeFile(size)) addButton('View', url);
+        addButton('Download', downloadUrl, !fileId);
+
+        item.append(itemTitle, actions);
         catalogueList.append(item);
       });
 
@@ -532,7 +552,7 @@ const greekTranslations = {
   'Home': 'Αρχική', 'Collections': 'Συλλογές', 'Explore': 'Εξερεύνηση', 'Services': 'Υπηρεσίες', 'About Us': 'Σχετικά με εμάς', 'Gallery': 'Γκαλερί', 'Contact': 'Επικοινωνία', 'Consultation': 'Ραντεβού',
   'Furniture': 'Έπιπλα', 'Indoor': 'Εσωτερικού χώρου', 'Outdoor': 'Εξωτερικού χώρου', 'Indoor Furniture': 'Έπιπλα εσωτερικού χώρου', 'Outdoor Furniture': 'Έπιπλα εξωτερικού χώρου', 'Office Furniture': 'Έπιπλα γραφείου', 'Tiles': 'Πλακάκια', 'Tiles & Surfaces': 'Πλακάκια και επιφάνειες', 'Bathroom': 'Μπάνιο', 'Bathroom & Sanitaryware': 'Μπάνιο και είδη υγιεινής', 'Taps': 'Μπαταρίες', 'Sanitary Ware': 'Είδη υγιεινής', 'Bathroom Accessories': 'Αξεσουάρ μπάνιου', 'Accessories': 'Αξεσουάρ', 'Curtains': 'Κουρτίνες', 'Curtains & Blinds': 'Κουρτίνες και στόρια', 'Blinds': 'Στόρια', 'Fabric': 'Υφάσματα', 'Parasols': 'Ομπρέλες', 'Lighting': 'Φωτισμός', 'General': 'Γενικά',
   'Interior & Outdoor Furniture': 'Έπιπλα εσωτερικού και εξωτερικού χώρου', 'View All Catalogues': 'Δείτε όλους τους καταλόγους', 'Brands & Partners': 'Μάρκες και Συνεργάτες', 'Cyclades': 'Κυκλάδες',
-  'Book a Consultation': 'Κλείστε ραντεβού', 'Ask for a Quote': 'Ζητήστε προσφορά', 'Catalogues': 'Κατάλογοι', 'Catalogue': 'Κατάλογος', 'Download PDF': 'Λήψη PDF', 'Close': 'Κλείσιμο',
+  'Book a Consultation': 'Κλείστε ραντεβού', 'Ask for a Quote': 'Ζητήστε προσφορά', 'Catalogues': 'Κατάλογοι', 'Catalogue': 'Κατάλογος', 'View': 'Προβολή', 'Download': 'Λήψη', 'Close': 'Κλείσιμο',
   'Interior - Exterior Quality Brands': 'Ποιοτικές μάρκες εσωτερικού και εξωτερικού χώρου', 'Explore Collections': 'Εξερευνήστε τις συλλογές',
   'Bespoke bathrooms, furniture & interior essentials, curated on the island of Mykonos.': 'Εξατομικευμένες λύσεις για μπάνιο, έπιπλα και είδη εσωτερικού χώρου, επιλεγμένες στη Μύκονο.',
   'Our Collections': 'Οι συλλογές μας', 'Curated for Every Room, Indoors & Out': 'Επιλεγμένα για κάθε χώρο, μέσα και έξω', 'All': 'Όλα', 'Filter brands by category': 'Φιλτράρισμα μαρκών ανά κατηγορία',
