@@ -124,7 +124,7 @@ To send a message:
 
 The quote form follows the same process and uses **Send Quote Request**. The consultation form uses **Request Consultation**.
 
-Website forms are submitted through FormSubmit and delivered to the showroom email address. FormSubmit may display its own confirmation or redirect behavior after submission.
+Website forms are submitted through Web3Forms and delivered to the showroom email address. After sending, the visitor is taken to a thank-you page.
 
 Do not enter payment-card details, passwords, identity documents, or other highly sensitive information into a website message.
 

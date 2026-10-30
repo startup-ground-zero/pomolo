@@ -28,7 +28,7 @@
 <meta name="twitter:image:alt" content="Pomolo Mykonos showroom exterior">
 
 <!-- Security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src 'self' https://www.instagram.com; base-uri 'self'; form-action 'self' https://formsubmit.co; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src 'self' https://www.instagram.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -168,9 +168,10 @@
         <li><strong>Instagram</strong><br><a href="https://www.instagram.com/pomolo_mykonos_official/" target="_blank" rel="noopener noreferrer">@pomolo_mykonos_official</a></li>
       </ul>
     </div>
-    <form class="contact-form" action="https://formsubmit.co/kyrkats@hotmail.com" method="POST">
-      <input type="hidden" name="_subject" value="Pomolo website enquiry">
-      <input type="hidden" name="_next" value="https://startup-ground-zero.github.io/pomolo/thank-you.html">
+    <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="dacf6596-560c-473f-a9a3-4eb380da1886">
+      <input type="hidden" name="from_name" value="Pomolo website enquiry">
+      <input type="hidden" name="redirect" value="https://startup-ground-zero.github.io/pomolo/thank-you.html">
       <div class="form-field"><label class="form-label" for="contact-name">Full Name</label><input id="contact-name" type="text" name="name" placeholder="Full Name" autocomplete="name" maxlength="100" required></div>
       <div class="form-row">
         <div class="form-field"><label class="form-label" for="contact-email">Email Address</label><input id="contact-email" type="email" name="email" placeholder="Email Address" autocomplete="email" maxlength="150" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Enter an email address with a domain, such as name@example.com." required></div>
@@ -178,9 +179,9 @@
       </div>
       <div class="form-field"><label class="form-label" for="contact-subject">Subject</label><input id="contact-subject" type="text" name="subject" placeholder="Subject" autocomplete="off" maxlength="150" required></div>
       <div class="form-field"><label class="form-label" for="contact-message">Tell us about your project...</label><textarea id="contact-message" name="message" rows="5" placeholder="Tell us about your project..." maxlength="2000" required></textarea></div>
-      <!-- Honeypot: hidden from real users, bots tend to fill every field -->
-      <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <p class="form-note">Your submission is processed by FormSubmit. Please do not include sensitive personal information.</p>
+      <!-- Honeypot: hidden from real users, bots tend to tick every box -->
+      <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="form-note">Your submission is processed by Web3Forms. Please do not include sensitive personal information.</p>
       <label class="consent-field"><input type="checkbox" name="privacy-consent" required> I agree to the <a href="privacy.html">Privacy Policy</a>.</label>
       <button type="submit" class="btn btn-primary">Send Enquiry</button>
       <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
