@@ -246,6 +246,9 @@ if (catalogueViewer) {
   const catalogueClose = document.getElementById('catalogue-viewer-close');
   let activeCatalogueCard;
 
+  // Per card (data-category): [{ title, url, size }]; cards without an entry show the placeholder list.
+  const catalogueItems = {};
+
   const closeCatalogueViewer = () => {
     catalogueViewer.hidden = true;
     document.documentElement.classList.remove('dialog-open');
@@ -264,23 +267,37 @@ if (catalogueViewer) {
       cataloguePreviewTitle.textContent = `${localizedCatalogueName} ${localizedCatalogues}`;
       catalogueList.replaceChildren();
 
-      for (let index = 1; index <= 5; index += 1) {
+      const items = catalogueItems[card.dataset.category] ?? Array.from({ length: 5 }, (_, index) => ({
+        title: `${localizedCatalogueName} ${localizedCatalogue} ${index + 1}`,
+        url: cataloguePdf
+      }));
+
+      items.forEach(({ title, url, size }) => {
         const item = document.createElement('div');
         item.className = 'catalogue-list-item';
 
         const itemTitle = document.createElement('span');
-        itemTitle.textContent = `${localizedCatalogueName} ${localizedCatalogue} ${index}`;
+        itemTitle.textContent = title;
+        if (size) {
+          const sizeLabel = document.createElement('span');
+          sizeLabel.className = 'catalogue-list-size';
+          sizeLabel.textContent = ` (${size})`;
+          itemTitle.append(sizeLabel);
+        }
 
         const openLink = document.createElement('a');
         openLink.className = 'catalogue-list-open';
-        openLink.href = cataloguePdf;
+        openLink.href = url;
         openLink.target = '_blank';
         openLink.rel = 'noopener noreferrer';
-        openLink.textContent = window.pomoloTranslateText?.('Open PDF') ?? 'Open PDF';
+        openLink.textContent = window.pomoloTranslateText?.('Download PDF') ?? 'Download PDF';
 
         item.append(itemTitle, openLink);
         catalogueList.append(item);
-      }
+      });
+
+      const sizeNote = document.getElementById('catalogue-size-note');
+      if (sizeNote) sizeNote.hidden = !items.some(item => item.size);
 
       const quoteViewerLink = document.getElementById('quote-viewer-link');
       if (quoteViewerLink) quoteViewerLink.href = `quote.html?category=${card.dataset.category}`;
@@ -515,7 +532,7 @@ const greekTranslations = {
   'Home': 'Αρχική', 'Collections': 'Συλλογές', 'Explore': 'Εξερεύνηση', 'Services': 'Υπηρεσίες', 'About Us': 'Σχετικά με εμάς', 'Gallery': 'Γκαλερί', 'Contact': 'Επικοινωνία', 'Consultation': 'Ραντεβού',
   'Furniture': 'Έπιπλα', 'Indoor': 'Εσωτερικού χώρου', 'Outdoor': 'Εξωτερικού χώρου', 'Indoor Furniture': 'Έπιπλα εσωτερικού χώρου', 'Outdoor Furniture': 'Έπιπλα εξωτερικού χώρου', 'Office Furniture': 'Έπιπλα γραφείου', 'Tiles': 'Πλακάκια', 'Tiles & Surfaces': 'Πλακάκια και επιφάνειες', 'Bathroom': 'Μπάνιο', 'Bathroom & Sanitaryware': 'Μπάνιο και είδη υγιεινής', 'Taps': 'Μπαταρίες', 'Sanitary Ware': 'Είδη υγιεινής', 'Bathroom Accessories': 'Αξεσουάρ μπάνιου', 'Accessories': 'Αξεσουάρ', 'Curtains': 'Κουρτίνες', 'Curtains & Blinds': 'Κουρτίνες και στόρια', 'Blinds': 'Στόρια', 'Fabric': 'Υφάσματα', 'Parasols': 'Ομπρέλες', 'Lighting': 'Φωτισμός', 'General': 'Γενικά',
   'Interior & Outdoor Furniture': 'Έπιπλα εσωτερικού και εξωτερικού χώρου', 'View All Catalogues': 'Δείτε όλους τους καταλόγους', 'Brands & Partners': 'Μάρκες και Συνεργάτες', 'Cyclades': 'Κυκλάδες',
-  'Book a Consultation': 'Κλείστε ραντεβού', 'Ask for a Quote': 'Ζητήστε προσφορά', 'Catalogues': 'Κατάλογοι', 'Catalogue': 'Κατάλογος', 'Open PDF': 'Άνοιγμα PDF', 'Close': 'Κλείσιμο',
+  'Book a Consultation': 'Κλείστε ραντεβού', 'Ask for a Quote': 'Ζητήστε προσφορά', 'Catalogues': 'Κατάλογοι', 'Catalogue': 'Κατάλογος', 'Download PDF': 'Λήψη PDF', 'Close': 'Κλείσιμο',
   'Interior - Exterior Quality Brands': 'Ποιοτικές μάρκες εσωτερικού και εξωτερικού χώρου', 'Explore Collections': 'Εξερευνήστε τις συλλογές',
   'Bespoke bathrooms, furniture & interior essentials, curated on the island of Mykonos.': 'Εξατομικευμένες λύσεις για μπάνιο, έπιπλα και είδη εσωτερικού χώρου, επιλεγμένες στη Μύκονο.',
   'Our Collections': 'Οι συλλογές μας', 'Curated for Every Room, Indoors & Out': 'Επιλεγμένα για κάθε χώρο, μέσα και έξω', 'All': 'Όλα', 'Filter brands by category': 'Φιλτράρισμα μαρκών ανά κατηγορία',
@@ -565,6 +582,7 @@ const greekTranslations = {
   'Gallery | Pomolo Mykonos': 'Γκαλερί | Pomolo Mykonos', 'Follow the latest interiors, collections and installations from Pomolo Mykonos.': 'Ακολουθήστε τους πιο πρόσφατους εσωτερικούς χώρους, συλλογές και εγκαταστάσεις της Pomolo Mykonos.', 'Follow the Story': 'Ακολουθήστε την ιστορία', 'Life at': 'Η ζωή στο', ', Mykonos': ', Μύκονο', 'A live feed from our Instagram — the latest interiors, arrivals & installations.': 'Μια ζωντανή ροή από το Instagram μας — οι τελευταίοι εσωτερικοί χώροι, αφίξεις και εγκαταστάσεις.',
   'Page Not Found | Pomolo Mykonos': 'Η σελίδα δεν βρέθηκε | Pomolo Mykonos', 'Page not found.': 'Η σελίδα δεν βρέθηκε.', 'The page you are looking for is unavailable or may have moved.': 'Η σελίδα που αναζητάτε δεν είναι διαθέσιμη ή ίσως έχει μετακινηθεί.',
   'Opening hours': 'Ώρες λειτουργίας', 'Open Collections menu': 'Άνοιγμα μενού συλλογών',
+  'Large files. Download time depends on your connection.': 'Μεγάλα αρχεία. Ο χρόνος λήψης εξαρτάται από τη σύνδεσή σας.',
   'Pomolo emblem': 'Έμβλημα Pomolo', 'Pomolo interior equipment': 'Pomolo εξοπλισμός εσωτερικών χώρων', 'Pomolo interior equipments': 'Pomolo εξοπλισμός εσωτερικών χώρων', 'Pomolo Mykonos showroom exterior': 'Εξωτερικός χώρος του showroom Pomolo Mykonos', 'Pomolo Mykonos founder outside the showroom': 'Ο ιδρυτής της Pomolo Mykonos έξω από το showroom',
   '“Interior & Exterior. Luxury. Quality.”': '«Εσωτερικός και εξωτερικός χώρος. Πολυτέλεια. Ποιότητα.»', 'Interior & Exterior. Luxury. Quality.': 'Εσωτερικός και εξωτερικός χώρος. Πολυτέλεια. Ποιότητα.', '— The': '— Η',
   'Pomolo Mykonos showroom overview': 'Επισκόπηση του showroom Pomolo Mykonos', 'Inside the Pomolo Mykonos showroom': 'Μέσα στο showroom Pomolo Mykonos',

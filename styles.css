@@ -520,9 +520,11 @@ header.scrolled {
 .catalogue-list { display: flex; flex-direction: column; gap: 10px; max-height: 430px; overflow-y: auto; padding: 4px; }
 .catalogue-list-item { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 16px 18px; background: var(--c-white); border-left: 3px solid var(--c-cyan); box-shadow: 0 8px 18px rgba(10,10,10,0.08); }
 .catalogue-list-item span { color: var(--c-black); font: 500 0.92rem var(--font-sans); }
+.catalogue-list-item .catalogue-list-size { color: var(--c-grey); font-weight: 400; white-space: nowrap; }
 .catalogue-list-open { flex: 0 0 auto; padding: 9px 12px; border: 1px solid var(--c-black); color: var(--c-black); font: 600 0.7rem var(--font-sans); letter-spacing: 0.8px; text-transform: uppercase; }
 .catalogue-list-open:hover, .catalogue-list-open:focus-visible { background: var(--c-black); color: var(--c-white); outline: none; }
-.catalogue-viewer-actions { display: flex; justify-content: flex-end; gap: 12px; padding: 18px 30px; border-top: 1px solid #dce2e5; }
+.catalogue-viewer-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 12px; padding: 18px 30px; border-top: 1px solid #dce2e5; }
+.catalogue-size-note { margin: 0 auto 0 0; color: var(--c-grey); font-size: 0.8rem; font-weight: 300; }
 
 /* ===========================================================================
   Informational pages
