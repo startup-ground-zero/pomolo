@@ -263,6 +263,10 @@ if (catalogueViewer) {
     activeCatalogueCard?.focus();
   };
 
+  window.pomoloRefreshCatalogueViewer = () => {
+    if (!catalogueViewer.hidden) activeCatalogueCard?.click();
+  };
+
   document.querySelectorAll('.catalogue-card').forEach(card => {
     const openCatalogueViewer = () => {
       activeCatalogueCard = card;
@@ -414,7 +418,7 @@ if (catalogueViewer) {
         }
       }
     }
-    if (selectedCatalogueCard) selectedCatalogueCard.click();
+    if (selectedCatalogueCard) document.addEventListener('DOMContentLoaded', () => selectedCatalogueCard.click(), { once: true });
   }
 }
 
@@ -708,6 +712,7 @@ function applyLanguage(language) {
   translateAttributes(language);
   updateQuoteSubject(language);
   initialiseCollectionsNavigation();
+  window.pomoloRefreshCatalogueViewer?.();
 
   const button = document.querySelector('.language-toggle');
   if (button) {
