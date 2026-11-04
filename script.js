@@ -246,8 +246,12 @@ if (catalogueViewer) {
   const catalogueClose = document.getElementById('catalogue-viewer-close');
   let activeCatalogueCard;
 
-  // Per card (data-category): [{ title, url, size }]; cards without an entry show the placeholder list.
-  const catalogueItems = {};
+  // Per card (data-category): [{ brand, title, url, size }]; cards without an entry show the placeholder list.
+  const catalogueItems = {
+    lighting: [
+      { brand: 'Hind Rabii', title: 'Lookbook Lighting 2026', url: 'https://drive.google.com/file/d/1hTpB3vNZow7HNVzToLJzI55USb6z620s/view?usp=drive_link' }
+    ]
+  };
 
   const driveFileId = url => /drive\.google\.com\/file\/d\/([\w-]+)/.exec(url)?.[1];
   // Drive cannot preview large PDFs, so the View button is hidden from 100 MB up.
@@ -284,12 +288,23 @@ if (catalogueViewer) {
         url: cataloguePdf
       }));
 
-      items.forEach(({ title, url, size }) => {
+      items.forEach(({ brand, title, url, size }) => {
         const item = document.createElement('div');
         item.className = 'catalogue-list-item';
 
         const itemTitle = document.createElement('span');
-        itemTitle.textContent = title;
+        itemTitle.className = 'catalogue-list-label';
+        if (brand) {
+          const brandLabel = document.createElement('span');
+          brandLabel.className = 'catalogue-list-brand';
+          brandLabel.textContent = brand;
+          const nameLabel = document.createElement('span');
+          nameLabel.className = 'catalogue-list-name';
+          nameLabel.textContent = title;
+          itemTitle.append(brandLabel, nameLabel);
+        } else {
+          itemTitle.textContent = title;
+        }
         if (size) {
           const sizeLabel = document.createElement('span');
           sizeLabel.className = 'catalogue-list-size';
