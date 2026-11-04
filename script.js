@@ -250,8 +250,55 @@ if (catalogueViewer) {
   const catalogueItems = {
     lighting: [
       { brand: 'Hind Rabii', title: 'Lookbook Lighting 2026', url: 'https://drive.google.com/file/d/1hTpB3vNZow7HNVzToLJzI55USb6z620s/view?usp=drive_link' },
-      { brand: 'Brand name', title: 'Catalogue title', url: 'https://drive.google.com/file/d/166UPgz4PM_Dp-Kjk4Ve59_Whz5a1qqfc/view?usp=drive_link' }
+      { brand: 'Zafferano', title: '', url: 'https://drive.google.com/file/d/166UPgz4PM_Dp-Kjk4Ve59_Whz5a1qqfc/view?usp=drive_link' }
     ]
+  };
+
+  // One public Drive folder ID per card (data-category). File names must be "Brand - Catalogue title.pdf".
+  const driveApiKey = 'AIzaSyBUupciLkk0FCjgO9tvzwF7eywU1V3fmNo';
+  const driveFolders = {
+    indoor: '1V9_LLBalwnyUahVNBU6_rPgqIuPyHzxR',
+    outdoor: '1ghWPbjmLoV28r09xT0YgE_DSrTnR_JxN',
+    tiles: '1N3ucM4w0K-8RqLCjVj45oyJbFFcx0boF',
+    taps: '1G3B4rvTqVZ9aqWaiLNci9RgubTRCbLzU',
+    'sanitary-ware': '1bEaTMp3VB7eN3QUJQIGLuclgjeBeXWAc',
+    accessories: '1PCLKITqlxF9KVdRy1zPUk9h7ZMb_CuAZ',
+    blinds: '1BFrrx0t7MD27oPYkfiYKYeP14WHXwNb9',
+    fabric: '1r303arXoVcFIL43k1_31oM2v5Q06uPMh',
+    parasols: '1LaduSXP8hXaN62T4An7UQt924-NrruQk',
+    lighting: '1fb9XrWg9swL263qJ7lA3WQMyUvEnp3dm'
+  };
+  const driveCache = new Map();
+
+  const formatSize = bytes => {
+    const value = Number(bytes);
+    if (!value) return undefined;
+    if (value >= 1024 ** 3) return `${(value / 1024 ** 3).toFixed(1)} GB`;
+    if (value >= 1024 ** 2) return `${Math.round(value / 1024 ** 2)} MB`;
+    return `${Math.max(1, Math.round(value / 1024))} KB`;
+  };
+
+  const loadDriveFolder = category => {
+    const folderId = driveFolders[category];
+    if (!driveApiKey || !folderId) return undefined;
+    if (!driveCache.has(category)) {
+      const query = encodeURIComponent(`'${folderId}' in parents and trashed=false and mimeType='application/pdf'`);
+      const fields = encodeURIComponent('files(id,name,size)');
+      const request = fetch(`https://www.googleapis.com/drive/v3/files?q=${query}&fields=${fields}&orderBy=name&pageSize=100&key=${driveApiKey}`)
+        .then(response => (response.ok ? response.json() : Promise.reject(new Error(response.status))))
+        .then(({ files }) => files.map(file => {
+          const [brand, ...rest] = file.name.replace(/\.pdf$/i, '').split(/\s+[-\u2013\u2014]\s+/);
+          return {
+            brand: brand.trim(),
+            title: rest.join(' - ').trim(),
+            url: `https://drive.google.com/file/d/${file.id}/view`,
+            size: formatSize(file.size)
+          };
+        }))
+        .catch(() => undefined);
+      driveCache.set(category, request);
+    }
+    return driveCache.get(category);
   };
 
   const driveFileId = url => /drive\.google\.com\/file\/d\/([\w-]+)/.exec(url)?.[1];
@@ -284,11 +331,13 @@ if (catalogueViewer) {
       cataloguePreviewTitle.textContent = `${localizedCatalogueName} ${localizedCatalogues}`;
       catalogueList.replaceChildren();
 
-      const items = catalogueItems[card.dataset.category] ?? Array.from({ length: 5 }, (_, index) => ({
+      const fallbackItems = catalogueItems[card.dataset.category] ?? Array.from({ length: 5 }, (_, index) => ({
         title: `${localizedCatalogueName} ${localizedCatalogue} ${index + 1}`,
         url: cataloguePdf
       }));
 
+      const renderItems = items => {
+      catalogueList.replaceChildren();
       items.forEach(({ brand, title, url, size }) => {
         const item = document.createElement('div');
         item.className = 'catalogue-list-item';
@@ -299,10 +348,13 @@ if (catalogueViewer) {
           const brandLabel = document.createElement('span');
           brandLabel.className = 'catalogue-list-brand';
           brandLabel.textContent = brand;
-          const nameLabel = document.createElement('span');
-          nameLabel.className = 'catalogue-list-name';
-          nameLabel.textContent = title;
-          itemTitle.append(brandLabel, nameLabel);
+          itemTitle.append(brandLabel);
+          if (title) {
+            const nameLabel = document.createElement('span');
+            nameLabel.className = 'catalogue-list-name';
+            nameLabel.textContent = title;
+            itemTitle.append(nameLabel);
+          }
         } else {
           itemTitle.textContent = title;
         }
@@ -338,6 +390,16 @@ if (catalogueViewer) {
 
       const sizeNote = document.getElementById('catalogue-size-note');
       if (sizeNote) sizeNote.hidden = !items.some(item => item.size);
+      };
+
+      const driveRequest = loadDriveFolder(card.dataset.category);
+      if (driveRequest) {
+        driveRequest.then(items => {
+          if (activeCatalogueCard === card && !catalogueViewer.hidden) renderItems(items?.length ? items : fallbackItems);
+        });
+      } else {
+        renderItems(fallbackItems);
+      }
 
       const quoteViewerLink = document.getElementById('quote-viewer-link');
       if (quoteViewerLink) quoteViewerLink.href = `quote.html?category=${card.dataset.category}`;
