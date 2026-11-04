@@ -249,7 +249,8 @@ if (catalogueViewer) {
   // Per card (data-category): [{ brand, title, url, size }]; cards without an entry show the placeholder list.
   const catalogueItems = {
     lighting: [
-      { brand: 'Hind Rabii', title: 'Lookbook Lighting 2026', url: 'https://drive.google.com/file/d/1hTpB3vNZow7HNVzToLJzI55USb6z620s/view?usp=drive_link' }
+      { brand: 'Hind Rabii', title: 'Lookbook Lighting 2026', url: 'https://drive.google.com/file/d/1hTpB3vNZow7HNVzToLJzI55USb6z620s/view?usp=drive_link' },
+      { brand: 'Brand name', title: 'Catalogue title', url: 'https://drive.google.com/file/d/166UPgz4PM_Dp-Kjk4Ve59_Whz5a1qqfc/view?usp=drive_link' }
     ]
   };
 
